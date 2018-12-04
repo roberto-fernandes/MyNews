@@ -14,8 +14,10 @@ public class PageAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    public void addFragment(Fragment fragment, String title) {
-        mFragmentList.add(fragment);
+
+    public void addFragment(String title) {
+        MainFragment mainFragment = new MainFragment();
+        mFragmentList.add(mainFragment );
         mFragmentTitleList.add(title);
     }
 
@@ -37,4 +39,5 @@ public class PageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mFragmentList.size();
     }
+
 }

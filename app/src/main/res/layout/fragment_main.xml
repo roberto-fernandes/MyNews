@@ -6,6 +6,7 @@
     tools:context=".Controller.MainFragment">
 
     <TextView
+        android:id="@+id/fragment_main_text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="fragment 1" />

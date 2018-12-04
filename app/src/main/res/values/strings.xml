@@ -12,4 +12,6 @@
     <string name="business">Business</string>
     <string name="arts">Arts</string>
     <string name="travel">Travel</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
 </resources>

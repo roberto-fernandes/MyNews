@@ -2,22 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_drawer_sports"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/baseline_directions_bike_24"
         android:title="@string/sports">
     </item>
     <item
         android:id="@+id/menu_drawer_business"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/baseline_business_center_24"
         android:title="@string/business">
     </item>
     <item
         android:id="@+id/menu_drawer_arts"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/baseline_whatshot_24"
         android:title="@string/arts">
     </item>
     <item
         android:id="@+id/menu_drawer_travel"
-        android:icon="@drawable/baseline_search_24"
+        android:icon="@drawable/baseline_beach_access_24"
         android:title="@string/travel">
     </item>
+
+    <item
+        android:id="@+id/menu_drawer_close"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="Close this App" />
 </menu>
