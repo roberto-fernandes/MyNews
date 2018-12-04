@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews;
+package robfernandes.xyz.mynews.Controller;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <item
+        android:id="@+id/menu_drawer_sports"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/sports">
+    </item>
+    <item
+        android:id="@+id/menu_drawer_business"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/business">
+    </item>
+    <item
+        android:id="@+id/menu_drawer_arts"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/arts">
+    </item>
+    <item
+        android:id="@+id/menu_drawer_travel"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/travel">
+    </item>
 </menu>

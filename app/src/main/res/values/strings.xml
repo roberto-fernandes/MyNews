@@ -8,4 +8,8 @@
     <string name="notifications">Notifications</string>
     <string name="help">Help</string>
     <string name="about">About</string>
+    <string name="sports">Sports</string>
+    <string name="business">Business</string>
+    <string name="arts">Arts</string>
+    <string name="travel">Travel</string>
 </resources>
