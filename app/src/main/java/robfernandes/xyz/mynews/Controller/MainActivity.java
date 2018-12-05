@@ -13,13 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import robfernandes.xyz.mynews.R;
+import robfernandes.xyz.mynews.Utils.Constants;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private ViewPager viewPager;
     private DrawerLayout drawer;
     private TabLayout tabLayout;
-    private String[] pageTitle = {"Fragment 1", "Fragment 2", "Fragment 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupViewPager() {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        for (int i = 0; i < pageTitle.length; i++) {
-            String title =pageTitle[i];
+        for (int i = 0; i < Constants.PAGE_TITLE.length; i++) {
+            String title = Constants.PAGE_TITLE[i];
             tabLayout.addTab(tabLayout.newTab().setText(title));
             adapter.addFragment(title);
         }
