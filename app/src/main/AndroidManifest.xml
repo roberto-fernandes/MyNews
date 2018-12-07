@@ -19,10 +19,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.SearchActivity" />
-        <activity android:name=".Controller.AboutActivity" />
-        <activity android:name=".Controller.NotificationsActivity" />
-        <activity android:name=".Controller.HelpActivity"></activity>
+        <activity
+            android:name=".Controller.SearchActivity"
+            android:label="Search"
+            android:parentActivityName=".Controller.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Controller.AboutActivity"
+            android:label="About"
+            android:parentActivityName=".Controller.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.MainActivity" />
+        </activity>
+        <activity android:name=".Controller.NotificationsActivity"
+            android:label="Notifications"
+            android:parentActivityName=".Controller.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.MainActivity" />
+        </activity>
+        <activity android:name=".Controller.HelpActivity"
+            android:label="Help"
+            android:parentActivityName=".Controller.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
