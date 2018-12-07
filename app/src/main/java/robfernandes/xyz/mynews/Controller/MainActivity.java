@@ -1,5 +1,6 @@
 package robfernandes.xyz.mynews.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -99,6 +100,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.menu_toolbar_about:
+                intent = new Intent(MainActivity.this,AboutActivity.class);
+                break;
+            case R.id.menu_toolbar_help:
+                intent = new Intent(MainActivity.this,HelpActivity.class);
+                break;
+            case R.id.menu_toolbar_notifications:
+                intent = new Intent(MainActivity.this,NotificationsActivity.class);
+                break;
+            case R.id.menu_toolbar_search:
+                intent = new Intent(MainActivity.this,SearchActivity.class);
+                break;
+            default:  intent = new Intent(MainActivity.this,MainActivity.class);
+        }
+        startActivity(intent);
+
+        return super.onOptionsItemSelected(item);
+    }
 
     private void setupViewPager() {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());

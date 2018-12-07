@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_activity_main_search"
+        android:id="@+id/menu_toolbar_search"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="ifRoom"
         android:title="Search">
     </item>
     <item
-        android:id="@+id/menu_activity_main_notifications"
+        android:id="@+id/menu_toolbar_notifications"
         app:showAsAction="never"
         android:title="@string/notifications">
     </item>
     <item
-        android:id="@+id/menu_activity_main_help"
+        android:id="@+id/menu_toolbar_help"
         app:showAsAction="never"
         android:title="@string/help">
     </item>
     <item
-        android:id="@+id/menu_activity_main_about"
+        android:id="@+id/menu_toolbar_about"
         app:showAsAction="never"
         android:title="@string/about">
     </item>
