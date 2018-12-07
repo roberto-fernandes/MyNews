@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.SearchActivity">
+    tools:context=".Controller.SearchActivity"
+    android:id="@+id/activity_search_linear_layout">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="search activity"/>
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.LinearLayoutCompat>
