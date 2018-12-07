@@ -15,12 +15,8 @@ public class PageAdapter extends FragmentPagerAdapter {
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
 
-    public void addFragment(String title) {
-        MainFragment mainFragment = new MainFragment();
-/*        Bundle bundle = new Bundle();
-        bundle.putString("edttext", title);
-        mainFragment.setArguments(bundle);
-        mFragmentList.add(mainFragment );*/
+    public void addFragment(Fragment fragment, String title) {
+        mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
     }
 

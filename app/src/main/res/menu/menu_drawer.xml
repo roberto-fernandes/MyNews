@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_drawer_top_stories"
+            android:icon="@drawable/ic_trending_up_black_24dp"
+            android:title="@string/top_stories">
+        </item>
+        <item
+            android:id="@+id/menu_drawer_most_popular"
+            android:icon="@drawable/baseline_whatshot_24"
+            android:title="@string/most_popular">
+        </item>
     <item
         android:id="@+id/menu_drawer_sports"
         android:icon="@drawable/baseline_directions_bike_24"
@@ -12,7 +25,7 @@
     </item>
     <item
         android:id="@+id/menu_drawer_arts"
-        android:icon="@drawable/baseline_whatshot_24"
+        android:icon="@drawable/ic_brush_black_24dp"
         android:title="@string/arts">
     </item>
     <item
@@ -24,5 +37,6 @@
     <item
         android:id="@+id/menu_drawer_close"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:title="Close this App" />
+        android:title="@string/close_app" />
+    </group>
 </menu>
