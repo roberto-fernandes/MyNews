@@ -28,7 +28,9 @@
                 android:background="@color/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:tabMode="scrollable"/>
+                app:tabIndicatorColor="@color/color_toolbar_item_selected"
+                app:tabMode="scrollable"
+                app:tabRippleColor="@android:color/background_dark" />
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/view_pager"

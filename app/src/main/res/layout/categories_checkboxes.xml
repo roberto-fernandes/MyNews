@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_margin="@dimen/settings_margin">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/checkbox_margin_center"
+        >
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_sports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sports"/>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_arts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/arts"/>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/checkbox_margin_center">
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_politics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/politics"/>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_enterperneurs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enterperneurs"/>
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/checkbox_business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/business"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

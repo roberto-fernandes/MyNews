@@ -5,11 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Controller.SearchActivity"
-    android:id="@+id/activity_search_linear_layout">
+    android:id="@+id/activity_search_linear_layout"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/settings_margin">
+    <include
+        layout="@layout/search_query_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="search activity"/>
+    <include
+        layout="@layout/data_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
+    <include
+        layout="@layout/categories_checkboxes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </android.support.v7.widget.LinearLayoutCompat>

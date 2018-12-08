@@ -20,4 +20,9 @@
     <string name="close_app">Close App</string>
     <string name="most_popular">Most popular</string>
     <string name="top_stories">Top stories</string>
+    <string name="politics">politics</string>
+    <string name="enterperneurs">enterperneurs</string>
+    <string name="search_query_hint">Search term</string>
+    <string name="begin_date">Begin date</string>
+    <string name="end_date">End date</string>
 </resources>
