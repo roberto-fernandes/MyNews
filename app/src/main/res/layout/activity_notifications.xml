@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.Activities.NotificationsActivity">
-    <TextView
-        android:layout_width="wrap_content"
+    tools:context=".Controller.Activities.NotificationsActivity"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/settings_margin">
+    <include
+        layout="@layout/search_query_input"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="notifications activity"/>
+        android:layout_marginBottom="@dimen/settings_margin" />
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        layout="@layout/categories_checkboxes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/settings_margin"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/settings_margin"
+            android:text="@string/enable_notifications_once_per_day" />
+        <Switch
+            android:id="@+id/activity_notifications_toggle_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginStart="@dimen/settings_margin"/>
+    </LinearLayout>
+
+
+</LinearLayout>
