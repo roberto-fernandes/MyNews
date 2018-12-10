@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.MainActivity"
+            android:name=".Controller.Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,42 +20,42 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.SearchActivity"
+            android:name=".Controller.Activities.SearchActivity"
             android:label="Search"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.MainActivity" />
+                android:value=".Controller.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.AboutActivity"
+            android:name=".Controller.Activities.AboutActivity"
             android:label="About"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.MainActivity" />
+                android:value=".Controller.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Controller.NotificationsActivity"
+        <activity android:name=".Controller.Activities.NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.MainActivity" />
+                android:value=".Controller.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Controller.HelpActivity"
+        <activity android:name=".Controller.Activities.HelpActivity"
             android:label="Help"
-            android:parentActivityName=".Controller.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.MainActivity" />
+                android:value=".Controller.Activities.MainActivity" />
         </activity>
         <activity android:name=".Controller.PreferenceActivity" />
     </application>

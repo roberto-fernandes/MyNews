@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.Controller;
+package robfernandes.xyz.mynews.Controller.Fragments;
 
 
 import android.os.Bundle;
@@ -9,13 +9,10 @@ import android.view.ViewGroup;
 
 import robfernandes.xyz.mynews.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ArtsFragment extends Fragment {
+public class SportsFragment extends Fragment {
 
 
-    public ArtsFragment() {
+    public SportsFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +21,7 @@ public class ArtsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_arts, container, false);
+        return inflater.inflate(R.layout.fragment_sports, container, false);
     }
 
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controller.SearchActivity"
+    tools:context=".Controller.Activities.SearchActivity"
     android:id="@+id/activity_search_linear_layout"
     android:orientation="vertical"
     android:layout_margin="@dimen/settings_margin">
