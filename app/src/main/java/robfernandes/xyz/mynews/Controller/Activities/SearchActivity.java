@@ -29,7 +29,6 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         setViews();
         setClickListeners();
-
     }
 
     private void setClickListeners() {
