@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu and add it to the Toolbar
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
     }
