@@ -12,37 +12,39 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.support.constraint.Constraints.TAG;
 import static robfernandes.xyz.mynews.Utils.Constants.TOP_STORIES_API_BASE_URL;
-import static robfernandes.xyz.mynews.Utils.Keys.API_KEY;
 
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class APIMethods {
-    private List<News> newsList = null;
+    private List<APIResponse.Result> mNewsList = null;
 
-    public List<News> getTopStories () {
+    public List<APIResponse.Result> getTopStories() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(TOP_STORIES_API_BASE_URL + API_KEY)
+                .baseUrl(TOP_STORIES_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         APICall apiCall = retrofit.create(APICall.class);
 
-        Call<List<News>> call = apiCall.getNews();
+        Call<APIResponse> call = apiCall.getNews();
 
-        call.enqueue(new Callback<List<News>>() {
+        call.enqueue(new Callback<APIResponse>() {
             @Override
-            public void onResponse(Call<List<News>> call, Response<List<News>> response) {
+            public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
                 if (!response.isSuccessful()) {
-                   newsList = response.body();
+                    APIResponse apiResponse = response.body();
+                    mNewsList = apiResponse.getResults();
+                } else {
+                    Log.d(TAG, "asd onResponse: not successful");
                 }
             }
 
             @Override
-            public void onFailure(Call<List<News>> call, Throwable t) {
-                Log.e(TAG, "onFailure: on Top News API Call");
+            public void onFailure(Call<APIResponse> call, Throwable t) {
+                Log.d(TAG, "asd onFailure: on Top APIResponse API Call.. "+t);
             }
         });
-        return newsList;
+        return mNewsList;
     }
 }

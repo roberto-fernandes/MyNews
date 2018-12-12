@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Controller.Fragments.TopStoriesFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/fragment_main_text_view"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_top_stories_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="top stories" />
-
-</LinearLayout>
+        />
+</android.support.v7.widget.LinearLayoutCompat>
