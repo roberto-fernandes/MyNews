@@ -16,6 +16,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -59,7 +60,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Controller.PreferenceActivity" />
     </application>
 
 </manifest>
