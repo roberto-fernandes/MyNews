@@ -21,4 +21,6 @@ public final class Constants {
     public static final int BUSINESS_INDEX = 3;
     public static final int ARTS_INDEX = 4;
     public static final int TRAVEL_INDEX = 5;
+    public static final String TOP_STORIES_API_BASE_URL = "https://api.nytimes.com/svc/topstories/v2/home.json?api_key=";
+    public static final String ERROR_MESSAGE = "We were not able to load the news, please try again later";
 }
