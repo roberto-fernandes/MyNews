@@ -25,4 +25,6 @@
     <string name="end_date">End date</string>
     <string name="search_btn">search</string>
     <string name="enable_notifications_once_per_day">Enable notifications (once per day)</string>
+    <string name="placeholder_text">placeholder text</string>
+    <string name="news_image">News Image</string>
 </resources>

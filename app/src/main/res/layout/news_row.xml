@@ -8,13 +8,52 @@
         android:id="@+id/news_row_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/color_toolbar_item_selected"
-        app:cardElevation="13dp">
+        app:cardElevation="20dp">
 
-        <TextView
-            android:id="@+id/news_row_title"
+        <android.support.v7.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/news_row_image"
+                android:layout_width="@dimen/news_image_size"
+                android:layout_height="@dimen/news_image_size"
+                android:layout_margin="@dimen/settings_margin"
+                android:contentDescription="@string/news_image" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/settings_margin">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/news_row_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:id="@+id/news_row_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/news_row_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/settings_margin"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.LinearLayoutCompat>
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

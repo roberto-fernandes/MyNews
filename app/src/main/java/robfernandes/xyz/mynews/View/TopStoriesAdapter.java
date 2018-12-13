@@ -1,11 +1,15 @@
 package robfernandes.xyz.mynews.View;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -17,9 +21,12 @@ import robfernandes.xyz.mynews.R;
  */
 public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.ViewHolder> {
     private List<APIResponse.Result> mNewsResultsList = null;
+    private static final String TAG = "TopStoriesAdapter";
+    private Context mContext;
 
-    public TopStoriesAdapter(List<APIResponse.Result> newsResultsList) {
+    public TopStoriesAdapter(List<APIResponse.Result> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
+        mContext = context;
     }
 
     @NonNull
@@ -32,8 +39,33 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull TopStoriesAdapter.ViewHolder viewHolder, int i) {
-        String newsTitle = mNewsResultsList.get(i).getTitle();
+        APIResponse.Result news = mNewsResultsList.get(i);
+        String newsTitle = news.getTitle();
+        String newsCategory = news.getSection();
+        String date = news.getUpdatedDate();
+        date = date.substring(0, 10); //only year, month and day
+        String imageURL = "";
+
+        //if there is only 1 image take the url of that one, if there are more, take the medium size
+        if (news.getMultimedia().size() == 1 ) {
+            imageURL = news.getMultimedia().get(0).getUrl();
+            Glide.with(mContext).load(imageURL).into(viewHolder.image);
+        } else if (news.getMultimedia().size() >1) {
+            imageURL = news.getMultimedia().get(1).getUrl();
+        }
+
+        if (news.getMultimedia().size() > 0) {
+            Glide.with(mContext).load(imageURL).into(viewHolder.image);
+        }
+
+        if (!news.getSubsection().equals("")) {
+            newsCategory += " > "+ news.getSubsection();
+        }
+
+
         viewHolder.title.setText(newsTitle);
+        viewHolder.category.setText(newsCategory);
+        viewHolder.date.setText(date);
     }
 
     @Override
@@ -46,11 +78,17 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
+        private ImageView image;
+        private TextView category;
+        private TextView date;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.news_row_title);
+            image = itemView.findViewById(R.id.news_row_image);
+            category = itemView.findViewById(R.id.news_row_category);
+            date = itemView.findViewById(R.id.news_row_date);
         }
     }
 }

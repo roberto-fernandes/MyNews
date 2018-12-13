@@ -86,7 +86,7 @@ public class TopStoriesFragment extends Fragment {
     }
 
     private void displayNews() {
-        mTopStoriesAdapter = new TopStoriesAdapter(mNewsList);
+        mTopStoriesAdapter = new TopStoriesAdapter(mNewsList, getContext());
         mRecyclerView = view.findViewById(R.id.fragment_top_stories_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mTopStoriesAdapter);
