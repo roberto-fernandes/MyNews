@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -37,6 +38,7 @@ public class TopStoriesFragment extends Fragment {
     private TopStoriesAdapter mTopStoriesAdapter;
     private List<APIResponse.Result> mNewsList;
     private View view;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     public TopStoriesFragment() {
         // Required empty public constructor
@@ -47,7 +49,9 @@ public class TopStoriesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_top_stories, container, false);
-        setTopStories();
+        swipeRefreshLayout = view.findViewById(R.id.fragment_top_stories_swipe_refresh_layout);
+        setTopStories(false);
+        configureSwipeRefreshLayout();
         return view;
     }
 
@@ -56,7 +60,7 @@ public class TopStoriesFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    private void setTopStories() {
+    private void setTopStories(final boolean isRefreshing) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(TOP_STORIES_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -72,7 +76,11 @@ public class TopStoriesFragment extends Fragment {
                 if (response.isSuccessful()) {
                     APIResponse apiResponse = response.body();
                     mNewsList = apiResponse.getResults();
-                    displayNews();
+                    if(isRefreshing) {
+                        updateUI();
+                    } else {
+                        configureRecyclerView();
+                    }
                 } else {
                     Log.e(TAG, "asd onResponse: not successful.." + response);
                 }
@@ -85,10 +93,25 @@ public class TopStoriesFragment extends Fragment {
         });
     }
 
-    private void displayNews() {
+    private void configureRecyclerView() {
         mTopStoriesAdapter = new TopStoriesAdapter(mNewsList, getContext());
         mRecyclerView = view.findViewById(R.id.fragment_top_stories_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mTopStoriesAdapter);
+
+    }
+
+    private void configureSwipeRefreshLayout() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setTopStories(true);
+            }
+        });
+    }
+
+    private void updateUI() {
+        swipeRefreshLayout.setRefreshing(false);
+        mTopStoriesAdapter.notifyDataSetChanged();
     }
 }
