@@ -21,26 +21,26 @@ import robfernandes.xyz.mynews.R;
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
-public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<APIResponse.Result> mNewsResultsList = null;
-    private static final String TAG = "TopStoriesAdapter";
+    private static final String TAG = "RecyclerViewAdapter";
     private Context mContext;
 
-    public TopStoriesAdapter(List<APIResponse.Result> newsResultsList, Context context) {
+    public RecyclerViewAdapter(List<APIResponse.Result> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
         mContext = context;
     }
 
     @NonNull
     @Override
-    public TopStoriesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.news_row, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TopStoriesAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
         APIResponse.Result news = mNewsResultsList.get(i);
         String newsTitle = news.getTitle();
         String newsCategory = news.getSection();

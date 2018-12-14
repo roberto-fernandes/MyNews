@@ -1,27 +1,36 @@
 package robfernandes.xyz.mynews.Controller.Fragments;
 
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import robfernandes.xyz.mynews.R;
 
-public class SportsFragment extends Fragment {
+import static robfernandes.xyz.mynews.Utils.Constants.CATEGORIES_API_BASE_URL;
+import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_SECTION;
 
-
-    public SportsFragment() {
-        // Required empty public constructor
-    }
+public class SportsFragment extends BaseFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sports, container, false);
+    protected String getURL() {
+        return CATEGORIES_API_BASE_URL;
     }
 
+    @Override
+    protected int getSwipeRefreshLayoutID() {
+        return R.id.fragment_sports_swipe_refresh_layout;
+    }
+
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.fragment_sports;
+    }
+
+    @Override
+    protected int getRecyclerViewID() {
+        return R.id.fragment_sports_recycler_view;
+    }
+
+    @Override
+    protected String getSection() {
+        return SPORTS_SECTION;
+    }
 }

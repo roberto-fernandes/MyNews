@@ -1,30 +1,40 @@
 package robfernandes.xyz.mynews.Controller.Fragments;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import robfernandes.xyz.mynews.R;
+
+import static robfernandes.xyz.mynews.Utils.Constants.CATEGORIES_API_BASE_URL;
+import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_SECTION;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TravelFragment extends Fragment {
-
-
-    public TravelFragment() {
-        // Required empty public constructor
-    }
-
+public class TravelFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_travel, container, false);
+    protected String getURL() {
+        return CATEGORIES_API_BASE_URL;
     }
 
+    @Override
+    protected int getSwipeRefreshLayoutID() {
+        return R.id.fragment_travel_swipe_refresh_layout;
+    }
+
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.fragment_travel;
+    }
+
+    @Override
+    protected int getRecyclerViewID() {
+        return R.id.fragment_travel_recycler_view;
+    }
+
+    @Override
+    protected String getSection() {
+        return TRAVEL_SECTION;
+    }
 }

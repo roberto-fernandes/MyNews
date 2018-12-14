@@ -1,30 +1,40 @@
 package robfernandes.xyz.mynews.Controller.Fragments;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import robfernandes.xyz.mynews.R;
+
+import static robfernandes.xyz.mynews.Utils.Constants.ARTS_SECTION;
+import static robfernandes.xyz.mynews.Utils.Constants.CATEGORIES_API_BASE_URL;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ArtsFragment extends Fragment {
-
-
-    public ArtsFragment() {
-        // Required empty public constructor
-    }
-
+public class ArtsFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_arts, container, false);
+    protected String getURL() {
+        return CATEGORIES_API_BASE_URL;
     }
 
+    @Override
+    protected int getSwipeRefreshLayoutID() {
+        return R.id.fragment_arts_swipe_refresh_layout;
+    }
+
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.fragment_arts;
+    }
+
+    @Override
+    protected int getRecyclerViewID() {
+        return R.id.fragment_arts_recycler_view;
+    }
+
+    @Override
+    protected String getSection() {
+        return ARTS_SECTION;
+    }
 }
