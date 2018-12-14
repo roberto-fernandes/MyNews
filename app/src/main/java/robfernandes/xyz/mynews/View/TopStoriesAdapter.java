@@ -1,6 +1,7 @@
 package robfernandes.xyz.mynews.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import robfernandes.xyz.mynews.Controller.Activities.NewsDisplayActivity;
 import robfernandes.xyz.mynews.Model.APIResponse;
 import robfernandes.xyz.mynews.R;
 
@@ -89,6 +91,19 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
             image = itemView.findViewById(R.id.news_row_image);
             category = itemView.findViewById(R.id.news_row_category);
             date = itemView.findViewById(R.id.news_row_date);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int itemPosition = getAdapterPosition();
+                    String url = mNewsResultsList.get(itemPosition).getUrl();
+
+                    Intent intent = new Intent(mContext, NewsDisplayActivity.class);
+                    intent.putExtra("URL", url);
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 }

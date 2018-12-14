@@ -25,7 +25,7 @@
         <activity
             android:name=".Controller.Activities.SearchActivity"
             android:label="Search"
-            android:parentActivityName=".Controller.Activities.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -35,25 +35,37 @@
         <activity
             android:name=".Controller.Activities.AboutActivity"
             android:label="About"
-            android:parentActivityName=".Controller.Activities.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Controller.Activities.NotificationsActivity"
+        <activity
+            android:name=".Controller.Activities.NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".Controller.Activities.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.Activities.MainActivity" />
         </activity>
-        <activity android:name=".Controller.Activities.HelpActivity"
+        <activity
+            android:name=".Controller.Activities.HelpActivity"
             android:label="Help"
-            android:parentActivityName=".Controller.Activities.MainActivity" >
+            android:parentActivityName=".Controller.Activities.MainActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.Activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Controller.Activities.NewsDisplayActivity"
+            android:label="NewsDisplay"
+            android:parentActivityName=".Controller.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
