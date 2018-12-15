@@ -2,6 +2,7 @@ package robfernandes.xyz.mynews.Controller.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int index;
         switch (item.getItemId()) {
             case R.id.menu_drawer_sports:
@@ -105,18 +106,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent;
         switch (item.getItemId()) {
             case R.id.menu_toolbar_about:
-                intent = new Intent(MainActivity.this,AboutActivity.class);
+                intent = new Intent(MainActivity.this, AboutActivity.class);
                 break;
             case R.id.menu_toolbar_help:
-                intent = new Intent(MainActivity.this,HelpActivity.class);
+                intent = new Intent(MainActivity.this, HelpActivity.class);
                 break;
             case R.id.menu_toolbar_notifications:
-                intent = new Intent(MainActivity.this,NotificationsActivity.class);
+                intent = new Intent(MainActivity.this, NotificationsActivity.class);
                 break;
             case R.id.menu_toolbar_search:
-                intent = new Intent(MainActivity.this,SearchActivity.class);
+                intent = new Intent(MainActivity.this, SearchActivity.class);
                 break;
-            default:  intent = new Intent(MainActivity.this,MainActivity.class);
+            default:
+                intent = new Intent(MainActivity.this, MainActivity.class);
         }
         startActivity(intent);
 

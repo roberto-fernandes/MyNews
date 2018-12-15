@@ -21,7 +21,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import robfernandes.xyz.mynews.Model.APICall;
 import robfernandes.xyz.mynews.Model.APIResponseTopStories;
-import robfernandes.xyz.mynews.View.RecyclerViewAdapter;
+import robfernandes.xyz.mynews.View.TopStoriesAdapter;
 
 /**
  * Created by Roberto Fernandes on 14/12/2018.
@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
     private List<APIResponseTopStories.Result> mNewsList;
     private static final String TAG = "BaseFragment";
     private RecyclerView mRecyclerView;
-    private RecyclerViewAdapter mRecyclerViewAdapter;
+    private TopStoriesAdapter mTopStoriesAdapter;
 
     protected abstract String getURL();
     protected abstract int getSwipeRefreshLayoutID();
@@ -91,10 +91,10 @@ public abstract class BaseFragment extends Fragment {
     }
 
     private void configureRecyclerView() {
-        mRecyclerViewAdapter = new RecyclerViewAdapter(mNewsList, getContext());
+        mTopStoriesAdapter = new TopStoriesAdapter(mNewsList, getContext());
         mRecyclerView = view.findViewById(getRecyclerViewID());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.setAdapter(mTopStoriesAdapter);
 
     }
 
@@ -109,7 +109,7 @@ public abstract class BaseFragment extends Fragment {
 
     private void updateUI() {
         swipeRefreshLayout.setRefreshing(false);
-        mRecyclerViewAdapter.notifyDataSetChanged();
+        mTopStoriesAdapter.notifyDataSetChanged();
     }
 
 }

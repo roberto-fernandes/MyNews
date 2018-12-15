@@ -3,7 +3,7 @@ package robfernandes.xyz.mynews.Controller.Fragments;
 
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.CATEGORIES_API_BASE_URL;
+import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
 import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_SECTION;
 
 public class SportsFragment extends BaseFragment {
@@ -11,7 +11,7 @@ public class SportsFragment extends BaseFragment {
 
     @Override
     protected String getURL() {
-        return CATEGORIES_API_BASE_URL;
+        return API_BASE_URL;
     }
 
     @Override

@@ -1,11 +1,11 @@
 package robfernandes.xyz.mynews.Controller.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -19,8 +19,7 @@ public class SearchActivity extends AppCompatActivity {
     private TextView endDateTextView;
     private Calendar mRightNow;
     private Calendar mBeginDate;
-    private DatePickerDialog.OnDateSetListener mBeginDateSetListener;
-    private DatePickerDialog.OnDateSetListener mEndDateSetListener;
+    protected DatePickerDialog.OnDateSetListener mEndDateSetListener;
     private Calendar mEndDate;
 
     @Override
@@ -32,41 +31,32 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void setClickListeners() {
-        mBeginDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                //Set the date on the view when the user finish selecting a date
-                mBeginDate = Calendar.getInstance();
-                mBeginDate.set(year, month, dayOfMonth);
-                displayTime(beginDateTextView, mBeginDate);
-            }
+        DatePickerDialog.OnDateSetListener beginDateSetListener = (view, year, month, dayOfMonth) -> {
+            //Set the date on the view when the user finish selecting a date
+            mBeginDate = Calendar.getInstance();
+            mBeginDate.set(year, month, dayOfMonth);
+            displayTime(beginDateTextView, mBeginDate);
         };
-        mEndDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                //Set the date on the view when the user finish selecting a date
-                mEndDate = Calendar.getInstance();
-                mEndDate.set(year, month, dayOfMonth);
-                displayTime(endDateTextView, mEndDate);
-            }
+        mEndDateSetListener = (view, year, month, dayOfMonth) -> {
+            //Set the date on the view when the user finish selecting a date
+            mEndDate = Calendar.getInstance();
+            mEndDate.set(year, month, dayOfMonth);
+            displayTime(endDateTextView, mEndDate);
         };
-        beginDateTextView.setOnClickListener(setDatePicker(mBeginDateSetListener));
+        beginDateTextView.setOnClickListener(setDatePicker(beginDateSetListener));
         endDateTextView.setOnClickListener(setDatePicker(mEndDateSetListener));
     }
 
     @NonNull
     private View.OnClickListener setDatePicker(final DatePickerDialog.OnDateSetListener mDateSetListener) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePickerDialog dialog;
-                dialog = new DatePickerDialog(SearchActivity.this,
-                        mDateSetListener,
-                        mRightNow.get(Calendar.YEAR),
-                        mRightNow.get(Calendar.MONTH),
-                        mRightNow.get(Calendar.DAY_OF_MONTH));
-                dialog.show();
-            }
+        return v -> {
+            DatePickerDialog dialog;
+            dialog = new DatePickerDialog(SearchActivity.this,
+                    mDateSetListener,
+                    mRightNow.get(Calendar.YEAR),
+                    mRightNow.get(Calendar.MONTH),
+                    mRightNow.get(Calendar.DAY_OF_MONTH));
+            dialog.show();
         };
     }
 
@@ -78,8 +68,10 @@ public class SearchActivity extends AppCompatActivity {
         displayTime(endDateTextView, mRightNow);
     }
 
+    @SuppressLint("SimpleDateFormat")
     private void displayTime(TextView textView, Calendar date) {
-        SimpleDateFormat format = new SimpleDateFormat("M/d/yyyy");
+        SimpleDateFormat format;
+        format = new SimpleDateFormat("M/d/yyyy");
         String dateString = format.format(date.getTime());
         textView.setText(dateString);
     }

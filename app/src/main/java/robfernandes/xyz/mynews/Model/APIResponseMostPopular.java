@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Roberto Fernandes on 15/12/2018.
  */
-public class APIMostPopularResponse {
+public class APIResponseMostPopular {
 
     @SerializedName("status")
     @Expose
@@ -89,25 +89,16 @@ public class APIMostPopularResponse {
         private String source;
         @SerializedName("id")
         @Expose
-        private Integer id;
+        private Long id;
         @SerializedName("asset_id")
         @Expose
-        private Integer assetId;
+        private Long assetId;
         @SerializedName("views")
         @Expose
         private Integer views;
         @SerializedName("des_facet")
         @Expose
         private List<String> desFacet = null;
-        @SerializedName("org_facet")
-        @Expose
-        private String orgFacet;
-        @SerializedName("per_facet")
-        @Expose
-        private String perFacet;
-        @SerializedName("geo_facet")
-        @Expose
-        private String geoFacet;
         @SerializedName("media")
         @Expose
         private List<Medium> media = null;
@@ -192,19 +183,19 @@ public class APIMostPopularResponse {
             this.source = source;
         }
 
-        public Integer getId() {
+        public Long getId() {
             return id;
         }
 
-        public void setId(Integer id) {
+        public void setId(Long id) {
             this.id = id;
         }
 
-        public Integer getAssetId() {
+        public Long getAssetId() {
             return assetId;
         }
 
-        public void setAssetId(Integer assetId) {
+        public void setAssetId(Long assetId) {
             this.assetId = assetId;
         }
 
@@ -222,30 +213,6 @@ public class APIMostPopularResponse {
 
         public void setDesFacet(List<String> desFacet) {
             this.desFacet = desFacet;
-        }
-
-        public String getOrgFacet() {
-            return orgFacet;
-        }
-
-        public void setOrgFacet(String orgFacet) {
-            this.orgFacet = orgFacet;
-        }
-
-        public String getPerFacet() {
-            return perFacet;
-        }
-
-        public void setPerFacet(String perFacet) {
-            this.perFacet = perFacet;
-        }
-
-        public String getGeoFacet() {
-            return geoFacet;
-        }
-
-        public void setGeoFacet(String geoFacet) {
-            this.geoFacet = geoFacet;
         }
 
         public List<Medium> getMedia() {

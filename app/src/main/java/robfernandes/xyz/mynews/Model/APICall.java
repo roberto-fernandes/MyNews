@@ -10,9 +10,9 @@ import robfernandes.xyz.mynews.Utils.Keys;
  */
 public interface APICall {
 
-    @GET("topstories/v2/{section}.json?api_key="+Keys.API_KEY)
+    @GET("topstories/v2/{section}.json?api_key=" + Keys.API_KEY)
     Call<APIResponseTopStories> TopStories(@Path("section") String section);
 
-    @GET("mostpopular/v2/mostviewed/all-sections/7.json?api_key="+Keys.API_KEY)
-    Call<APIMostPopularResponse> TopMostPopular();
+    @GET("mostpopular/v2/mostviewed/all-sections/7.json?api_key=" + Keys.API_KEY)
+    Call<APIResponseMostPopular> mostPopular();
 }

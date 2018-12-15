@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.CATEGORIES_API_BASE_URL;
+import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
 import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_SECTION;
 
 /**
@@ -15,7 +15,7 @@ public class TravelFragment extends BaseFragment {
 
     @Override
     protected String getURL() {
-        return CATEGORIES_API_BASE_URL;
+        return API_BASE_URL;
     }
 
     @Override

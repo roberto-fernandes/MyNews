@@ -15,7 +15,7 @@ public class TopStoriesFragment extends BaseFragment {
 
     @Override
     protected String getURL() {
-        return Constants.CATEGORIES_API_BASE_URL;
+        return Constants.API_BASE_URL;
     }
 
     @Override

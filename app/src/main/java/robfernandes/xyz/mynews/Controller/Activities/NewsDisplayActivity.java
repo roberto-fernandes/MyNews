@@ -10,8 +10,7 @@ import robfernandes.xyz.mynews.R;
 
 public class NewsDisplayActivity extends AppCompatActivity {
 
-    private WebView webview;
-    private String url;
+    protected String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class NewsDisplayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         url = intent.getStringExtra("URL");
-        webview = findViewById(R.id.activity_news_web_view);
+        WebView webview = findViewById(R.id.activity_news_web_view);
         webview.setWebViewClient(new WebViewClient()); //to display on the app ot in some browser
         webview.loadUrl(url);
     }
