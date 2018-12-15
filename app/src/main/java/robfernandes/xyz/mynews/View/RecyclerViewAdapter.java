@@ -15,18 +15,18 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import robfernandes.xyz.mynews.Controller.Activities.NewsDisplayActivity;
-import robfernandes.xyz.mynews.Model.APIResponse;
+import robfernandes.xyz.mynews.Model.APIResponseTopStories;
 import robfernandes.xyz.mynews.R;
 
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<APIResponse.Result> mNewsResultsList = null;
+    private List<APIResponseTopStories.Result> mNewsResultsList = null;
     private static final String TAG = "RecyclerViewAdapter";
     private Context mContext;
 
-    public RecyclerViewAdapter(List<APIResponse.Result> newsResultsList, Context context) {
+    public RecyclerViewAdapter(List<APIResponseTopStories.Result> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
         mContext = context;
     }
@@ -41,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder viewHolder, int i) {
-        APIResponse.Result news = mNewsResultsList.get(i);
+        APIResponseTopStories.Result news = mNewsResultsList.get(i);
         String newsTitle = news.getTitle();
         String newsCategory = news.getSection();
         String date = news.getUpdatedDate();

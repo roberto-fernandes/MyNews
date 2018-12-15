@@ -20,7 +20,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import robfernandes.xyz.mynews.Model.APICall;
-import robfernandes.xyz.mynews.Model.APIResponse;
+import robfernandes.xyz.mynews.Model.APIResponseTopStories;
 import robfernandes.xyz.mynews.View.RecyclerViewAdapter;
 
 /**
@@ -30,7 +30,7 @@ public abstract class BaseFragment extends Fragment {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private View view;
-    private List<APIResponse.Result> mNewsList;
+    private List<APIResponseTopStories.Result> mNewsList;
     private static final String TAG = "BaseFragment";
     private RecyclerView mRecyclerView;
     private RecyclerViewAdapter mRecyclerViewAdapter;
@@ -65,14 +65,14 @@ public abstract class BaseFragment extends Fragment {
 
         APICall apiCall = retrofit.create(APICall.class);
 
-        Call<APIResponse> call = apiCall.getNews(getSection());
+        Call<APIResponseTopStories> call = apiCall.TopStories(getSection());
 
-        call.enqueue(new Callback<APIResponse>() {
+        call.enqueue(new Callback<APIResponseTopStories>() {
             @Override
-            public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
+            public void onResponse(Call<APIResponseTopStories> call, Response<APIResponseTopStories> response) {
                 if (response.isSuccessful()) {
-                    APIResponse apiResponse = response.body();
-                    mNewsList = apiResponse.getResults();
+                    APIResponseTopStories apiResponseTopStories = response.body();
+                    mNewsList = apiResponseTopStories.getResults();
                     if(isRefreshing) {
                         updateUI();
                     } else {
@@ -84,8 +84,8 @@ public abstract class BaseFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<APIResponse> call, Throwable t) {
-                Log.e(TAG, "asd onFailure: on Top APIResponse API Call.. " + t);
+            public void onFailure(Call<APIResponseTopStories> call, Throwable t) {
+                Log.e(TAG, "asd onFailure: on Top APIResponseTopStories API Call.. " + t);
             }
         });
     }

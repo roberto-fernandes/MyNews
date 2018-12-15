@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
-public class APIResponse {
+public class APIResponseTopStories {
 
     @SerializedName("status")
     @Expose
