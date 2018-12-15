@@ -95,7 +95,6 @@ public abstract class BaseFragment extends Fragment {
         mRecyclerView = view.findViewById(getRecyclerViewID());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mTopStoriesAdapter);
-
     }
 
     private void configureSwipeRefreshLayout() {
