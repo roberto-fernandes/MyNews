@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -29,7 +30,14 @@ public class SearchDisplayActivity extends AppCompatActivity {
     private SearchAdapter searchAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<APIResponseSearch.Doc> mNewsList;
+    private List<APIResponseSearch.Doc> mNewsListFiltered;
     private static final String TAG = "SearchDisplayActivity";
+    private boolean sportsCheckbox;
+    private boolean artsCheckbox;
+    private boolean travelCheckbox;
+    private boolean politicsCheckbox;
+    private boolean othersCheckbox;
+    private boolean businessCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,12 @@ public class SearchDisplayActivity extends AppCompatActivity {
         term = intent.getStringExtra("term");
         beginDate = intent.getStringExtra("begin_date");
         endDate = intent.getStringExtra("end_date");
+        sportsCheckbox = intent.getBooleanExtra("sportsCheckbox", false);
+        artsCheckbox = intent.getBooleanExtra("artsCheckbox", false);
+        travelCheckbox = intent.getBooleanExtra("travelCheckbox", false);
+        politicsCheckbox = intent.getBooleanExtra("politicsCheckbox", false);
+        othersCheckbox = intent.getBooleanExtra("othersCheckbox", false);
+        businessCheckbox = intent.getBooleanExtra("businessCheckbox", false);
     }
 
     private void setItems(final boolean isRefreshing) {
@@ -65,6 +79,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
                     Log.d(TAG, "onResponse: sss" + response);
                     APIResponseSearch apiResponseSearch = response.body();
                     mNewsList = apiResponseSearch.getResponse().getDocs();
+                    createNewsListFiltered ();
                     if (isRefreshing) {
                         updateUI();
                     } else {
@@ -83,7 +98,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
     }
 
     private void configureRecyclerView() {
-        searchAdapter = new SearchAdapter(mNewsList, SearchDisplayActivity.this);
+        searchAdapter = new SearchAdapter(mNewsListFiltered, SearchDisplayActivity.this);
         recyclerView = findViewById(R.id.activity_search_display_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchDisplayActivity.this));
         recyclerView.setAdapter(searchAdapter);
@@ -93,10 +108,42 @@ public class SearchDisplayActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(() -> setItems(true));
     }
 
-
-
     private void updateUI() {
         swipeRefreshLayout.setRefreshing(false);
         searchAdapter.notifyDataSetChanged();
+    }
+
+    private void createNewsListFiltered () {
+        mNewsListFiltered = new ArrayList<>();
+        String categories[] = {"Sports", "Arts", "Travel",  "Politics", "Business"};
+
+        for (APIResponseSearch.Doc news: mNewsList){
+            testNewsCategory(sportsCheckbox, categories[0], news);
+            testNewsCategory(artsCheckbox, categories[1], news);
+            testNewsCategory(travelCheckbox, categories[2], news);
+            testNewsCategory(politicsCheckbox, categories[3], news);
+            testNewsCategory(businessCheckbox, categories[4], news);
+
+            if (othersCheckbox) {
+                boolean anotherCatefory = true;
+                String newsSection = news.getSectionName();
+                for (String category: categories) {
+                    if (newsSection.equals(category)) {
+                        anotherCatefory = false;
+                    }
+                }
+                if (anotherCatefory) {
+                    mNewsListFiltered.add(news);
+                }
+            }
+        }
+    }
+
+    private void testNewsCategory(boolean isChecked, String sectionName, APIResponseSearch.Doc news) {
+        if (isChecked) {
+            if (news.getSectionName().equals(sectionName)) {
+                mNewsListFiltered.add(news);
+            }
+        }
     }
 }

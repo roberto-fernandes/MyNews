@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,6 +31,12 @@ public class SearchSelectorActivity extends AppCompatActivity {
     private String mBeginDate;
     private String mEndDate;
     private static final String TAG = "SearchSelectorActivity";
+    private CheckBox sportsCheckbox;
+    private CheckBox artsCheckbox;
+    private CheckBox travelCheckbox;
+    private CheckBox politicsCheckbox;
+    private CheckBox othersCheckbox;
+    private CheckBox businessCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +75,12 @@ public class SearchSelectorActivity extends AppCompatActivity {
             intent.putExtra("term", term);
             intent.putExtra("begin_date", mBeginDate); //YYYYMMDD
             intent.putExtra("end_date", mEndDate); //YYYYMMDD
+            intent.putExtra("sportsCheckbox", sportsCheckbox.isChecked());
+            intent.putExtra("artsCheckbox", artsCheckbox.isChecked());
+            intent.putExtra("travelCheckbox", travelCheckbox.isChecked());
+            intent.putExtra("politicsCheckbox", politicsCheckbox.isChecked());
+            intent.putExtra("othersCheckbox", othersCheckbox.isChecked());
+            intent.putExtra("businessCheckbox", businessCheckbox.isChecked());
             startActivity(intent);
         });
     }
@@ -92,6 +105,12 @@ public class SearchSelectorActivity extends AppCompatActivity {
         mRightNow = Calendar.getInstance();
         displayTime(beginDateTextView, mRightNow);
         displayTime(endDateTextView, mRightNow);
+        sportsCheckbox = findViewById(R.id.categories_checkboxes_sports);
+        artsCheckbox = findViewById(R.id.categories_checkboxes_arts);
+        travelCheckbox = findViewById(R.id.categories_checkboxes_travel);
+        politicsCheckbox = findViewById(R.id.categories_checkboxes_politics);
+        othersCheckbox = findViewById(R.id.categories_checkboxes_others_topics);
+        businessCheckbox = findViewById(R.id.categories_checkboxes_business);
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -108,4 +127,5 @@ public class SearchSelectorActivity extends AppCompatActivity {
         String dateString = format.format(date.getTime());
         return dateString;
     }
+
 }
