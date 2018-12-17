@@ -12,12 +12,12 @@
     <string name="close_app">Close App</string>
     <string name="most_popular">Most popular</string>
     <string name="top_stories">Top stories</string>
-    <string name="politics">politics</string>
-    <string name="enterperneurs">enterperneurs</string>
+    <string name="politics">Politics</string>
+    <string name="enterperneurs">Enterperneurs</string>
     <string name="search_query_hint">Search term</string>
-    <string name="begin_date">Begin date</string>
-    <string name="end_date">End date</string>
-    <string name="search_btn">search</string>
+    <string name="begin_date">Begin Date</string>
+    <string name="end_date">End Date</string>
+    <string name="search_btn">Search</string>
     <string name="enable_notifications_once_per_day">Enable notifications (once per day)</string>
     <string name="news_image">News Image</string>
 </resources>

@@ -24,51 +24,59 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/settings_margin">
+            android:layout_margin="@dimen/settings_margin"
+            android:gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/settings_margin"
                 android:layout_marginBottom="@dimen/settings_margin"
-                android:text="@string/begin_date" />
+                android:text="@string/begin_date"
+                android:textSize="@dimen/date_text_size"
+                android:gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/activity_search_begin_date_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/settings_margin"
-                android:layout_marginBottom="@dimen/settings_margin" />
+                android:layout_marginBottom="@dimen/settings_margin"
+                android:textSize="@dimen/date_text_size" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="@dimen/settings_margin">
+            android:layout_margin="@dimen/settings_margin"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/settings_margin"
                 android:layout_marginBottom="@dimen/settings_margin"
-                android:text="@string/end_date"/>
+                android:text="@string/end_date"
+                android:textSize="@dimen/date_text_size"
+                android:gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/activity_search_end_date_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/settings_margin"
-                android:layout_marginBottom="@dimen/settings_margin" />
+                android:layout_marginBottom="@dimen/settings_margin"
+                android:textSize="@dimen/date_text_size" />
         </LinearLayout>
     </LinearLayout>
     <include
         layout="@layout/categories_checkboxes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/activity_search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/search_btn"
-        android:layout_marginTop="@dimen/settings_margin" />
+        android:layout_marginTop="@dimen/settings_margin"
+        android:background="@color/colorPrimary"
+        android:text="@string/search_btn" />
 </android.support.v7.widget.LinearLayoutCompat>

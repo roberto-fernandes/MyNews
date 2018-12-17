@@ -29,6 +29,13 @@ public class APIResponseSearch {
         @SerializedName("meta")
         @Expose
         private Meta meta;
+        @SerializedName("section_name")
+        @Expose
+        private String sectionName;
+
+        public String getSectionName() {
+            return sectionName;
+        }
 
         public List<Doc> getDocs() {
             return docs;

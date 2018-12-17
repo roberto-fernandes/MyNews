@@ -26,12 +26,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     private List<APIResponseSearch.Doc> mNewsResultsList = null;
     private static final String TAG = "SearchAdapter";
     private Context mContext;
-    private String searchTerm;
 
-    public SearchAdapter(List<APIResponseSearch.Doc> newsResultsList, Context context, String searchTerm) {
+    public SearchAdapter(List<APIResponseSearch.Doc> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
         mContext = context;
-        this.searchTerm = searchTerm;
     }
 
     @NonNull
@@ -46,6 +44,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, int i) {
         APIResponseSearch.Doc news = mNewsResultsList.get(i);
         String newsTitle = news.getHeadline().getMain();
+        String category = news.getSectionName();
         String date = news.getPubDate();
         if (date != null && date.length() > 11) {
             date = date.substring(0, 10); //only year, month and day
@@ -69,7 +68,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         viewHolder.title.setText(newsTitle);
         viewHolder.date.setText(date);
-        viewHolder.category.setText(searchTerm);
+        viewHolder.category.setText(category);
     }
 
     @Override

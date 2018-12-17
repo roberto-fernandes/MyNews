@@ -83,7 +83,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
     }
 
     private void configureRecyclerView() {
-        searchAdapter = new SearchAdapter(mNewsList, SearchDisplayActivity.this, term);
+        searchAdapter = new SearchAdapter(mNewsList, SearchDisplayActivity.this);
         recyclerView = findViewById(R.id.activity_search_display_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchDisplayActivity.this));
         recyclerView.setAdapter(searchAdapter);
