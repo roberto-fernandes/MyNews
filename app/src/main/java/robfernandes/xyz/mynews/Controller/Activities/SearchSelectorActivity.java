@@ -35,7 +35,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
     private CheckBox artsCheckbox;
     private CheckBox travelCheckbox;
     private CheckBox politicsCheckbox;
-    private CheckBox othersCheckbox;
+    private CheckBox otherCheckbox;
     private CheckBox businessCheckbox;
 
     @Override
@@ -79,7 +79,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
             intent.putExtra("artsCheckbox", artsCheckbox.isChecked());
             intent.putExtra("travelCheckbox", travelCheckbox.isChecked());
             intent.putExtra("politicsCheckbox", politicsCheckbox.isChecked());
-            intent.putExtra("othersCheckbox", othersCheckbox.isChecked());
+            intent.putExtra("otherCheckbox", otherCheckbox.isChecked());
             intent.putExtra("businessCheckbox", businessCheckbox.isChecked());
             startActivity(intent);
         });
@@ -109,7 +109,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
         artsCheckbox = findViewById(R.id.categories_checkboxes_arts);
         travelCheckbox = findViewById(R.id.categories_checkboxes_travel);
         politicsCheckbox = findViewById(R.id.categories_checkboxes_politics);
-        othersCheckbox = findViewById(R.id.categories_checkboxes_others_topics);
+        otherCheckbox = findViewById(R.id.categories_checkboxes_others_topics);
         businessCheckbox = findViewById(R.id.categories_checkboxes_business);
     }
 

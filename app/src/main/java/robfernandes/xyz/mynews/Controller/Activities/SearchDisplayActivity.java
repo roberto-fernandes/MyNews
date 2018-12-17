@@ -36,7 +36,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
     private boolean artsCheckbox;
     private boolean travelCheckbox;
     private boolean politicsCheckbox;
-    private boolean othersCheckbox;
+    private boolean otherCheckbox;
     private boolean businessCheckbox;
 
     @Override
@@ -58,7 +58,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
         artsCheckbox = intent.getBooleanExtra("artsCheckbox", false);
         travelCheckbox = intent.getBooleanExtra("travelCheckbox", false);
         politicsCheckbox = intent.getBooleanExtra("politicsCheckbox", false);
-        othersCheckbox = intent.getBooleanExtra("othersCheckbox", false);
+        otherCheckbox = intent.getBooleanExtra("otherCheckbox", false);
         businessCheckbox = intent.getBooleanExtra("businessCheckbox", false);
     }
 
@@ -124,7 +124,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
             testNewsCategory(politicsCheckbox, categories[3], news);
             testNewsCategory(businessCheckbox, categories[4], news);
 
-            if (othersCheckbox) {
+            if (otherCheckbox) {
                 boolean anotherCatefory = true;
                 String newsSection = news.getSectionName();
                 for (String category: categories) {
