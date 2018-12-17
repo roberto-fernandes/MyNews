@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.Activities.SearchActivity"
+            android:name=".Controller.Activities.SearchSelectorActivity"
             android:label="Search"
             android:parentActivityName=".Controller.Activities.MainActivity">
 
@@ -71,6 +71,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.Activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Controller.Activities.SearchDisplayActivity"
+            android:label="SearchDisplay"
+            android:parentActivityName=".Controller.Activities.SearchSelectorActivity">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Controller.Activities.SearchSelectorActivity" />
         </activity>
     </application>
 

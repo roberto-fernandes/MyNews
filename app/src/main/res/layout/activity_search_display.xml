@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Controller.Fragments.TopStories.TopStoriesFragment"
-    android:id="@+id/fragment_business_swipe_refresh_layout">
+    android:id="@+id/activity_search_display_swipe_refresh_layout">
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/fragment_business_recycler_view"
+        android:id="@+id/activity_search_display_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </android.support.v4.widget.SwipeRefreshLayout>

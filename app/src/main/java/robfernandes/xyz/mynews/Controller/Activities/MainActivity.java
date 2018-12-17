@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import robfernandes.xyz.mynews.Controller.Fragments.PageAdapter;
+import robfernandes.xyz.mynews.View.PageAdapter;
 import robfernandes.xyz.mynews.R;
 
 import static robfernandes.xyz.mynews.Utils.Constants.ARTS_INDEX;
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(MainActivity.this, NotificationsActivity.class);
                 break;
             case R.id.menu_toolbar_search:
-                intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent = new Intent(MainActivity.this, SearchSelectorActivity.class);
                 break;
             default:
                 intent = new Intent(MainActivity.this, MainActivity.class);

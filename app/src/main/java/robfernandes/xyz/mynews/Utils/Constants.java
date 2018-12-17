@@ -2,12 +2,12 @@ package robfernandes.xyz.mynews.Utils;
 
 import android.support.v4.app.Fragment;
 
-import robfernandes.xyz.mynews.Controller.Fragments.ArtsFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.BusinessFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.MostPopularFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.SportsFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TopStoriesFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TravelFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.TopStories.ArtsFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.TopStories.BusinessFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.MostPopular.MostPopularFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.TopStories.SportsFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.TopStories.TopStoriesFragment;
+import robfernandes.xyz.mynews.Controller.Fragments.TopStories.TravelFragment;
 
 /**
  * Created by Roberto Fernandes on 05/12/2018.

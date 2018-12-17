@@ -15,51 +15,61 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import robfernandes.xyz.mynews.Controller.Activities.NewsDisplayActivity;
-import robfernandes.xyz.mynews.Model.APIResponseMostPopular;
+import robfernandes.xyz.mynews.Model.APIResponseSearch;
 import robfernandes.xyz.mynews.R;
 
 /**
- * Created by Roberto Fernandes on 12/12/2018.
+ * Created by Roberto Fernandes on 17/12/2018.
  */
-public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.ViewHolder> {
-    private List<APIResponseMostPopular.Result> mNewsResultsList = null;
-    private static final String TAG = "MostPopularAdapter";
-    private Context mContext;
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    public MostPopularAdapter(List<APIResponseMostPopular.Result> newsResultsList, Context context) {
+    private List<APIResponseSearch.Doc> mNewsResultsList = null;
+    private static final String TAG = "SearchAdapter";
+    private Context mContext;
+    private String searchTerm;
+
+    public SearchAdapter(List<APIResponseSearch.Doc> newsResultsList, Context context, String searchTerm) {
         mNewsResultsList = newsResultsList;
         mContext = context;
+        this.searchTerm = searchTerm;
     }
 
     @NonNull
     @Override
-    public MostPopularAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SearchAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.news_row, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MostPopularAdapter.ViewHolder viewHolder, int i) {
-        APIResponseMostPopular.Result news = mNewsResultsList.get(i);
-        String newsTitle = news.getTitle();
-        String newsCategory = news.getSection();
-        String date = news.getPublishedDate();
+    public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder viewHolder, int i) {
+        APIResponseSearch.Doc news = mNewsResultsList.get(i);
+        String newsTitle = news.getHeadline().getMain();
+        String date = news.getPubDate();
         if (date != null && date.length() > 11) {
             date = date.substring(0, 10); //only year, month and day
         }
-        String imageURL = "";
+        String imageURL = "https://www.nytimes.com/";
 
         //if there is only 1 image take the url of that one, if there are more, take the medium size
-        List<APIResponseMostPopular.MediaMetadatum> mediaMetadataList = news.getMedia().get(0).getMediaMetadata();
-        if (mediaMetadataList.size() > 0) {
-            imageURL = mediaMetadataList.get(0).getUrl();
+        if (news.getMultimedia().size() == 1) {
+            imageURL += news.getMultimedia().get(0).getUrl();
+        }
+        else if (news.getMultimedia().size() == 2) {
+            imageURL += news.getMultimedia().get(1).getUrl();
+        }
+        else if (news.getMultimedia().size() > 2) {
+            imageURL += news.getMultimedia().get(2).getUrl();
+        }
+
+        if (news.getMultimedia().size() > 0) {
             Glide.with(mContext).load(imageURL).into(viewHolder.image);
         }
 
         viewHolder.title.setText(newsTitle);
-        viewHolder.category.setText(newsCategory);
         viewHolder.date.setText(date);
+        viewHolder.category.setText(searchTerm);
     }
 
     @Override
@@ -73,23 +83,23 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private ImageView image;
-        private TextView category;
         private TextView date;
+        private TextView category;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.news_row_title);
             image = itemView.findViewById(R.id.news_row_image);
-            category = itemView.findViewById(R.id.news_row_category);
             date = itemView.findViewById(R.id.news_row_date);
+            category = itemView.findViewById(R.id.news_row_category);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int itemPosition = getAdapterPosition();
-                    String url = mNewsResultsList.get(itemPosition).getUrl();
+                    String url = mNewsResultsList.get(itemPosition).getWebUrl();
 
                     Intent intent = new Intent(mContext, NewsDisplayActivity.class);
                     intent.putExtra("URL", url);

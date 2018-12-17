@@ -11,17 +11,14 @@
         android:layout_marginRight="@dimen/checkbox_margin_center"
         >
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_sports"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sports"/>
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_arts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/arts"/>
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_travel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/travel"/>
@@ -33,17 +30,14 @@
         android:orientation="vertical"
         android:layout_marginLeft="@dimen/checkbox_margin_center">
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_politics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/politics"/>
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_enterperneurs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/enterperneurs"/>
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/checkbox_business"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/business"/>

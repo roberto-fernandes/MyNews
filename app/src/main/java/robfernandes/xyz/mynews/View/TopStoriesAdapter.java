@@ -45,7 +45,9 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
         String newsTitle = news.getTitle();
         String newsCategory = news.getSection();
         String date = news.getUpdatedDate();
-        date = date.substring(0, 10); //only year, month and day
+        if (date != null && date.length() > 11) {
+            date = date.substring(0, 10); //only year, month and day
+        }
         String imageURL = "";
 
         //if there is only 1 image take the url of that one, if there are more, take the medium size

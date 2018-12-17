@@ -2,12 +2,11 @@
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_search_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/settings_margin"
     android:orientation="vertical"
-    tools:context=".Controller.Activities.SearchActivity">
+    tools:context=".Controller.Activities.SearchSelectorActivity">
 
     <include
         layout="@layout/search_query_input"
@@ -28,7 +27,6 @@
             android:layout_margin="@dimen/settings_margin">
 
             <TextView
-                android:id="@+id/activity_search_begin_date_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/settings_margin"
@@ -49,7 +47,6 @@
             android:layout_margin="@dimen/settings_margin">
 
             <TextView
-                android:id="@+id/activity_search_end_date_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/settings_margin"
@@ -69,6 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/activity_search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/search_btn"

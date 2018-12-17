@@ -35,7 +35,6 @@
     </item>
 
     <item
-        android:id="@+id/menu_drawer_close"
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/close_app" />
     </group>

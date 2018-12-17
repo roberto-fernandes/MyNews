@@ -29,7 +29,6 @@
             android:layout_marginStart="@dimen/settings_margin"
             android:text="@string/enable_notifications_once_per_day" />
         <Switch
-            android:id="@+id/activity_notifications_toggle_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
