@@ -125,14 +125,14 @@ public class SearchDisplayActivity extends AppCompatActivity {
             testNewsCategory(businessCheckbox, categories[4], news);
 
             if (otherCheckbox) {
-                boolean anotherCatefory = true;
+                boolean anotherCategory = true;
                 String newsSection = news.getSectionName();
                 for (String category: categories) {
                     if (newsSection.equals(category)) {
-                        anotherCatefory = false;
+                        anotherCategory = false;
                     }
                 }
-                if (anotherCatefory) {
+                if (anotherCategory) {
                     mNewsListFiltered.add(news);
                 }
             }

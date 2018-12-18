@@ -12,7 +12,6 @@ import android.widget.Switch;
 import java.util.Calendar;
 
 import robfernandes.xyz.mynews.Model.DataStorage;
-import robfernandes.xyz.mynews.Model.Notifications;
 import robfernandes.xyz.mynews.R;
 import robfernandes.xyz.mynews.Utils.Constants;
 
@@ -38,14 +37,7 @@ public class NotificationsActivity extends AppCompatActivity {
             isNotificationsActive = isChecked;
             mDataStorage.saveNotificationsStatusInMemory(isNotificationsActive);
             changeAlarmManagerStatus();
-            testNotifications(); //just for test
         });
-    }
-
-    private void testNotifications() {
-        Notifications notifications = new Notifications(NotificationsActivity.this);
-        notifications.createNotification();
-
     }
 
     private void changeAlarmManagerStatus() {
@@ -69,7 +61,9 @@ public class NotificationsActivity extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent
                 .getBroadcast(getApplicationContext(), 0, intent, 0);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000, 5000, pendingIntent); //just for test
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis()+1000,
+                5000, pendingIntent); //just for test
 
 
 /*        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP
