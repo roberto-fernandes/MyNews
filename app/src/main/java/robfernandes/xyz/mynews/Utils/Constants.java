@@ -28,4 +28,7 @@ public final class Constants {
     public static final String ARTS_SECTION = "arts";
     public static final String TRAVEL_SECTION = "travel";
     public static final String BUSINESS_SECTION = "business";
+    public static final int HOUR_NOTIFICATION = 19;
+    public static final int MINUTES_NOTIFICATION = 0;
+    public static final int NOTIFICATION_ID = Integer.MIN_VALUE;
 }
