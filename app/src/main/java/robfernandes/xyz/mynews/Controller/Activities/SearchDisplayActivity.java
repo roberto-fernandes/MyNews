@@ -2,6 +2,7 @@ package robfernandes.xyz.mynews.Controller.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,8 +36,6 @@ public class SearchDisplayActivity extends AppCompatActivity {
     private String term;
     private String beginDate;
     private String endDate;
-    private RecyclerView recyclerView;
-    private SearchAdapter searchAdapter;
     private List<APIResponseSearch.Doc> mNewsList;
     private static final String TAG = "SearchDisplayActivity";
     private DataManager mDataManager;
@@ -83,33 +82,36 @@ public class SearchDisplayActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<APIResponseSearch>() {
             @Override
-            public void onResponse(Call<APIResponseSearch> call, Response<APIResponseSearch>
-                    response) {
+            public void onResponse(@NonNull Call<APIResponseSearch> call,
+                                   @NonNull Response<APIResponseSearch>
+                                           response) {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "onResponse: sss" + response);
                     APIResponseSearch apiResponseSearch = response.body();
                     if (mNewsList != null) {
                         mNewsList.clear();
                     }
+                    assert apiResponseSearch != null;
                     mNewsList = mDataManager.createNewsListFiltered(
                             apiResponseSearch.getResponse().getDocs(), sportsCheckbox, artsCheckbox
                             , travelCheckbox, politicsCheckbox, businessCheckbox, otherCheckbox);
-                        configureRecyclerView();
+                    configureRecyclerView();
                 } else {
                     Log.d(TAG, "sss onResponse: noo " + response);
                 }
             }
 
             @Override
-            public void onFailure(Call<APIResponseSearch> call, Throwable t) {
+            public void onFailure(@NonNull Call<APIResponseSearch> call, @NonNull Throwable t) {
                 Log.d(TAG, "onFailure: sss" + t);
             }
         });
     }
 
     private void configureRecyclerView() {
-        searchAdapter = new SearchAdapter(mNewsList, SearchDisplayActivity.this);
-        recyclerView = findViewById(R.id.activity_search_display_recycler_view);
+        SearchAdapter searchAdapter = new SearchAdapter(mNewsList,
+                SearchDisplayActivity.this);
+        RecyclerView recyclerView = findViewById(R.id.activity_search_display_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchDisplayActivity.this));
         recyclerView.setAdapter(searchAdapter);
     }

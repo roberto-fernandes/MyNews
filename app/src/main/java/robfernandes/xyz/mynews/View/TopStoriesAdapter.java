@@ -22,8 +22,7 @@ import robfernandes.xyz.mynews.R;
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.ViewHolder> {
-    private List<APIResponseTopStories.Result> mNewsResultsList = null;
-    private static final String TAG = "TopStoriesAdapter";
+    private List<APIResponseTopStories.Result> mNewsResultsList;
     private Context mContext;
 
     public TopStoriesAdapter(List<APIResponseTopStories.Result> newsResultsList, Context context) {
@@ -78,13 +77,13 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
         return mNewsResultsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private ImageView image;
         private TextView category;
         private TextView date;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.news_row_title);
@@ -93,16 +92,13 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
             date = itemView.findViewById(R.id.news_row_date);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int itemPosition = getAdapterPosition();
-                    String url = mNewsResultsList.get(itemPosition).getUrl();
+            itemView.setOnClickListener(v -> {
+                int itemPosition = getAdapterPosition();
+                String url = mNewsResultsList.get(itemPosition).getUrl();
 
-                    Intent intent = new Intent(mContext, NewsDisplayActivity.class);
-                    intent.putExtra("URL", url);
-                    mContext.startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, NewsDisplayActivity.class);
+                intent.putExtra("URL", url);
+                mContext.startActivity(intent);
             });
         }
     }

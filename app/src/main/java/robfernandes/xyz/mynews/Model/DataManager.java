@@ -1,5 +1,6 @@
 package robfernandes.xyz.mynews.Model;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -16,29 +17,34 @@ import static robfernandes.xyz.mynews.Utils.Constants.NOTIFICATIONS_STATUS_KEY;
  */
 public class DataManager {
     private SharedPreferences sharedPreferences;
-    private Context context;
     private List<APIResponseSearch.Doc> newsListFiltered;
 
     public DataManager(Context context) {
-        this.context = context;
-        sharedPreferences = context.getSharedPreferences(NOTIFICATIONS_STATUS_KEY, Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(NOTIFICATIONS_STATUS_KEY,
+                Context.MODE_PRIVATE);
     }
 
-    public void saveBooleanInMemory (String key, boolean status) {
+    public void saveBooleanInMemory(String key, boolean status) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, status);
         editor.apply();
     }
 
-    public boolean readBooleanFromMemory (String key) {
+    public boolean readBooleanFromMemory(String key) {
         return sharedPreferences.getBoolean(key, false);
     }
 
-    public List<APIResponseSearch.Doc> createNewsListFiltered (List<APIResponseSearch.Doc> newsList,boolean sportsCheckbox, boolean artsCheckbox , boolean travelCheckbox, boolean politicsCheckbox, boolean  businessCheckbox, boolean otherCheckbox) {
+    public List<APIResponseSearch.Doc> createNewsListFiltered(List<APIResponseSearch.Doc> newsList,
+                                                              boolean sportsCheckbox,
+                                                              boolean artsCheckbox,
+                                                              boolean travelCheckbox,
+                                                              boolean politicsCheckbox,
+                                                              boolean businessCheckbox,
+                                                              boolean otherCheckbox) {
         newsListFiltered = new ArrayList<>();
 
 
-        for (APIResponseSearch.Doc news: newsList){
+        for (APIResponseSearch.Doc news : newsList) {
             testNewsCategory(sportsCheckbox, NOTIFICATIONS_CATEGORIES[0], news);
             testNewsCategory(artsCheckbox, NOTIFICATIONS_CATEGORIES[1], news);
             testNewsCategory(travelCheckbox, NOTIFICATIONS_CATEGORIES[2], news);
@@ -48,7 +54,7 @@ public class DataManager {
             if (otherCheckbox) {
                 boolean anotherCategory = true;
                 String newsSection = news.getSectionName();
-                for (String category: NOTIFICATIONS_CATEGORIES) {
+                for (String category : NOTIFICATIONS_CATEGORIES) {
                     if (newsSection.equals(category)) {
                         anotherCategory = false;
                     }
@@ -61,7 +67,8 @@ public class DataManager {
         return newsListFiltered;
     }
 
-    private void testNewsCategory(boolean isChecked, String sectionName, APIResponseSearch.Doc news) {
+    private void testNewsCategory(boolean isChecked, String sectionName,
+                                  APIResponseSearch.Doc news) {
         if (isChecked) {
             if (news.getSectionName().equals(sectionName)) {
                 newsListFiltered.add(news);
@@ -69,11 +76,10 @@ public class DataManager {
         }
     }
 
+    @SuppressLint("SimpleDateFormat")
     public static String formatDateToCallAPI(Calendar date) {
-        SimpleDateFormat format;
-        format = new SimpleDateFormat("yyyyMMdd");
-        String dateString = format.format(date.getTime());
-        return dateString;
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        return format.format(date.getTime());
     }
 
 }

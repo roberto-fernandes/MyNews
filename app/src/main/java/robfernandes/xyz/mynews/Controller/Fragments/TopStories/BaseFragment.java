@@ -32,13 +32,16 @@ public abstract class BaseFragment extends Fragment {
     private View view;
     private List<APIResponseTopStories.Result> mNewsList;
     private static final String TAG = "BaseFragment";
-    private RecyclerView mRecyclerView;
     private TopStoriesAdapter mTopStoriesAdapter;
 
     protected abstract String getURL();
+
     protected abstract int getSwipeRefreshLayoutID();
+
     protected abstract int getFragmentLayout();
+
     protected abstract int getRecyclerViewID();
+
     protected abstract String getSection();
 
     @Override
@@ -69,11 +72,13 @@ public abstract class BaseFragment extends Fragment {
 
         call.enqueue(new Callback<APIResponseTopStories>() {
             @Override
-            public void onResponse(Call<APIResponseTopStories> call, Response<APIResponseTopStories> response) {
+            public void onResponse(@NonNull Call<APIResponseTopStories> call,
+                                   @NonNull Response<APIResponseTopStories> response) {
                 if (response.isSuccessful()) {
                     APIResponseTopStories apiResponseTopStories = response.body();
+                    assert apiResponseTopStories != null;
                     mNewsList = apiResponseTopStories.getResults();
-                    if(isRefreshing) {
+                    if (isRefreshing) {
                         updateUI();
                     } else {
                         configureRecyclerView();
@@ -84,7 +89,7 @@ public abstract class BaseFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<APIResponseTopStories> call, Throwable t) {
+            public void onFailure(@NonNull Call<APIResponseTopStories> call, @NonNull Throwable t) {
                 Log.e(TAG, "asd onFailure: on Top APIResponseTopStories API Call.. " + t);
             }
         });
@@ -92,18 +97,13 @@ public abstract class BaseFragment extends Fragment {
 
     private void configureRecyclerView() {
         mTopStoriesAdapter = new TopStoriesAdapter(mNewsList, getContext());
-        mRecyclerView = view.findViewById(getRecyclerViewID());
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mTopStoriesAdapter);
+        RecyclerView recyclerView = view.findViewById(getRecyclerViewID());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(mTopStoriesAdapter);
     }
 
     private void configureSwipeRefreshLayout() {
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                setItems(true);
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(() -> setItems(true));
     }
 
     private void updateUI() {

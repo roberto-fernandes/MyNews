@@ -27,16 +27,16 @@ import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 /**
  * Created by Roberto Fernandes on 18/12/2018.
  */
-public class Notifications {
+class Notifications {
     private Context context;
     private NotificationManagerCompat notificationManagerCompat;
 
-    public Notifications(Context context) {
+    Notifications(Context context) {
         this.context = context;
         notificationManagerCompat = NotificationManagerCompat.from(context);
     }
 
-    public void createNotification(String title, String message) {
+    void createNotification(String title, String message) {
         String today = DataManager.formatDateToCallAPI(Calendar.getInstance());
         DataManager dataManager = new DataManager(context);
 
@@ -44,12 +44,18 @@ public class Notifications {
         intent.putExtra(QUERY_TERM_KEY, "");
         intent.putExtra(BEGIN_DATE_KEY, today); //YYYYMMDD
         intent.putExtra(END_DATE_KEY, today); //YYYYMMDD
-        intent.putExtra(SPORTS_STATUS_KEY, dataManager.readBooleanFromMemory(SPORTS_STATUS_KEY));
-        intent.putExtra(ARTS_STATUS_KEY, dataManager.readBooleanFromMemory(ARTS_STATUS_KEY));
-        intent.putExtra(TRAVEL_STATUS_KEY, dataManager.readBooleanFromMemory(TRAVEL_STATUS_KEY));
-        intent.putExtra(POLITICS_STATUS_KEY, dataManager.readBooleanFromMemory(POLITICS_STATUS_KEY));
-        intent.putExtra(OTHER_CATEGORIES_STATUS_KEY, dataManager.readBooleanFromMemory(OTHER_CATEGORIES_STATUS_KEY));
-        intent.putExtra(BUSINESS_STATUS_KEY, dataManager.readBooleanFromMemory(BUSINESS_STATUS_KEY));
+        intent.putExtra(SPORTS_STATUS_KEY,
+                dataManager.readBooleanFromMemory(SPORTS_STATUS_KEY));
+        intent.putExtra(ARTS_STATUS_KEY,
+                dataManager.readBooleanFromMemory(ARTS_STATUS_KEY));
+        intent.putExtra(TRAVEL_STATUS_KEY,
+                dataManager.readBooleanFromMemory(TRAVEL_STATUS_KEY));
+        intent.putExtra(POLITICS_STATUS_KEY,
+                dataManager.readBooleanFromMemory(POLITICS_STATUS_KEY));
+        intent.putExtra(OTHER_CATEGORIES_STATUS_KEY,
+                dataManager.readBooleanFromMemory(OTHER_CATEGORIES_STATUS_KEY));
+        intent.putExtra(BUSINESS_STATUS_KEY,
+                dataManager.readBooleanFromMemory(BUSINESS_STATUS_KEY));
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 2, intent
                 , PendingIntent.FLAG_UPDATE_CURRENT);

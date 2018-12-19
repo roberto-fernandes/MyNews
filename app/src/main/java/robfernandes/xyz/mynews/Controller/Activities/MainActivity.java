@@ -27,7 +27,8 @@ import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_INDEX;
 import static robfernandes.xyz.mynews.Utils.Constants.TOP_STORIES_INDEX;
 import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_INDEX;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private ViewPager viewPager;
     private DrawerLayout drawer;

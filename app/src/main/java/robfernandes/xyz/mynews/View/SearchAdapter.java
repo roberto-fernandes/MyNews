@@ -23,8 +23,7 @@ import robfernandes.xyz.mynews.R;
  */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    private List<APIResponseSearch.Doc> mNewsResultsList = null;
-    private static final String TAG = "SearchAdapter";
+    private List<APIResponseSearch.Doc> mNewsResultsList;
     private Context mContext;
 
     public SearchAdapter(List<APIResponseSearch.Doc> newsResultsList, Context context) {
@@ -54,11 +53,9 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         //if there is only 1 image take the url of that one, if there are more, take the medium size
         if (news.getMultimedia().size() == 1) {
             imageURL += news.getMultimedia().get(0).getUrl();
-        }
-        else if (news.getMultimedia().size() == 2) {
+        } else if (news.getMultimedia().size() == 2) {
             imageURL += news.getMultimedia().get(1).getUrl();
-        }
-        else if (news.getMultimedia().size() > 2) {
+        } else if (news.getMultimedia().size() > 2) {
             imageURL += news.getMultimedia().get(2).getUrl();
         }
 
@@ -79,13 +76,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         return mNewsResultsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private ImageView image;
         private TextView date;
         private TextView category;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.news_row_title);
@@ -94,16 +91,13 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             category = itemView.findViewById(R.id.news_row_category);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int itemPosition = getAdapterPosition();
-                    String url = mNewsResultsList.get(itemPosition).getWebUrl();
+            itemView.setOnClickListener(v -> {
+                int itemPosition = getAdapterPosition();
+                String url = mNewsResultsList.get(itemPosition).getWebUrl();
 
-                    Intent intent = new Intent(mContext, NewsDisplayActivity.class);
-                    intent.putExtra("URL", url);
-                    mContext.startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, NewsDisplayActivity.class);
+                intent.putExtra("URL", url);
+                mContext.startActivity(intent);
             });
         }
     }

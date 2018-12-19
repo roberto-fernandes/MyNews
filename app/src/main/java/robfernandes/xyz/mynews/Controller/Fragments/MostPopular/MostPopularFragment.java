@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +29,6 @@ public class MostPopularFragment extends Fragment {
     private SwipeRefreshLayout swipeRefreshLayout;
     private View view;
     private List<APIResponseMostPopular.Result> mNewsList;
-    private static final String TAG = "BaseFragment";
-    private RecyclerView mRecyclerView;
     private MostPopularAdapter mMostPopularAdapter;
 
     @Override
@@ -61,32 +58,32 @@ public class MostPopularFragment extends Fragment {
 
         call.enqueue(new Callback<APIResponseMostPopular>() {
             @Override
-            public void onResponse(Call<APIResponseMostPopular> call, Response<APIResponseMostPopular> response) {
+            public void onResponse(@NonNull Call<APIResponseMostPopular> call,
+                                   @NonNull Response<APIResponseMostPopular> response) {
                 if (response.isSuccessful()) {
                     APIResponseMostPopular apiResponseMostPopular = response.body();
+                    assert apiResponseMostPopular != null;
                     mNewsList = apiResponseMostPopular.getResults();
                     if (isRefreshing) {
                         updateUI();
                     } else {
                         configureRecyclerView();
                     }
-                } else {
-                    Log.e(TAG, "asd onResponse: not successful.." + response);
                 }
             }
 
             @Override
-            public void onFailure(Call<APIResponseMostPopular> call, Throwable t) {
-                Log.e(TAG, "asd onFailure: on Top APIResponseTopStories API Call.. " + t);
+            public void onFailure(@NonNull Call<APIResponseMostPopular> call,
+                                  @NonNull Throwable t) {
             }
         });
     }
 
     private void configureRecyclerView() {
         mMostPopularAdapter = new MostPopularAdapter(mNewsList, getContext());
-        mRecyclerView = view.findViewById(R.id.fragment_most_popular_recycler_view);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerView.setAdapter(mMostPopularAdapter);
+        RecyclerView recyclerView = view.findViewById(R.id.fragment_most_popular_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(mMostPopularAdapter);
     }
 
     private void configureSwipeRefreshLayout() {

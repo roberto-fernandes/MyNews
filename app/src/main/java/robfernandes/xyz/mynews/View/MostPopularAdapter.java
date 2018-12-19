@@ -22,11 +22,11 @@ import robfernandes.xyz.mynews.R;
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.ViewHolder> {
-    private List<APIResponseMostPopular.Result> mNewsResultsList = null;
-    private static final String TAG = "MostPopularAdapter";
+    private List<APIResponseMostPopular.Result> mNewsResultsList;
     private Context mContext;
 
-    public MostPopularAdapter(List<APIResponseMostPopular.Result> newsResultsList, Context context) {
+    public MostPopularAdapter(List<APIResponseMostPopular.Result> newsResultsList, Context context)
+    {
         mNewsResultsList = newsResultsList;
         mContext = context;
     }
@@ -41,17 +41,19 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MostPopularAdapter.ViewHolder viewHolder, int i) {
-        APIResponseMostPopular.Result news = mNewsResultsList.get(i);
+        APIResponseMostPopular.Result news;
+        news = mNewsResultsList.get(i);
         String newsTitle = news.getTitle();
         String newsCategory = news.getSection();
         String date = news.getPublishedDate();
         if (date != null && date.length() > 11) {
             date = date.substring(0, 10); //only year, month and day
         }
-        String imageURL = "";
+        String imageURL;
 
         //if there is only 1 image take the url of that one, if there are more, take the medium size
-        List<APIResponseMostPopular.MediaMetadatum> mediaMetadataList = news.getMedia().get(0).getMediaMetadata();
+        List<APIResponseMostPopular.MediaMetadatum> mediaMetadataList =
+                news.getMedia().get(0).getMediaMetadata();
         if (mediaMetadataList.size() > 0) {
             imageURL = mediaMetadataList.get(0).getUrl();
             Glide.with(mContext).load(imageURL).into(viewHolder.image);
@@ -70,13 +72,13 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
         return mNewsResultsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private ImageView image;
         private TextView category;
         private TextView date;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.news_row_title);
@@ -85,16 +87,13 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
             date = itemView.findViewById(R.id.news_row_date);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int itemPosition = getAdapterPosition();
-                    String url = mNewsResultsList.get(itemPosition).getUrl();
+            itemView.setOnClickListener(v -> {
+                int itemPosition = getAdapterPosition();
+                String url = mNewsResultsList.get(itemPosition).getUrl();
 
-                    Intent intent = new Intent(mContext, NewsDisplayActivity.class);
-                    intent.putExtra("URL", url);
-                    mContext.startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, NewsDisplayActivity.class);
+                intent.putExtra("URL", url);
+                mContext.startActivity(intent);
             });
         }
     }

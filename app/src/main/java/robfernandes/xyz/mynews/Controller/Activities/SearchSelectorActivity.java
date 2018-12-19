@@ -38,11 +38,9 @@ public class SearchSelectorActivity extends AppCompatActivity {
     private Calendar mBeginDateCalendar;
     protected DatePickerDialog.OnDateSetListener mEndDateSetListener;
     private Calendar mEndDateCalendar;
-    private Button button;
     private String term;
     private String mBeginDate;
     private String mEndDate;
-    private static final String TAG = "SearchSelectorActivity";
     private CheckBox sportsCheckbox;
     private CheckBox artsCheckbox;
     private CheckBox travelCheckbox;
@@ -81,7 +79,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
         beginDateTextView.setOnClickListener(setDatePicker(beginDateSetListener));
         endDateTextView.setOnClickListener(setDatePicker(mEndDateSetListener));
 
-        button = findViewById(R.id.activity_search_button);
+        Button button = findViewById(R.id.activity_search_button);
         button.setOnClickListener(v -> {
             if (sportsCheckbox.isChecked() || artsCheckbox.isChecked()
                     || travelCheckbox.isChecked()

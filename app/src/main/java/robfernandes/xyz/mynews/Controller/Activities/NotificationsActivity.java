@@ -1,5 +1,6 @@
 package robfernandes.xyz.mynews.Controller.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -27,7 +28,8 @@ import static robfernandes.xyz.mynews.Utils.Constants.POLITICS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 
-public class NotificationsActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class NotificationsActivity extends AppCompatActivity
+        implements CompoundButton.OnCheckedChangeListener {
 
     private DataManager mDataManager;
     private boolean isNotificationsActive;
@@ -45,19 +47,33 @@ public class NotificationsActivity extends AppCompatActivity implements Compound
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        mDataManager = new DataManager(NotificationsActivity.this);
-        isNotificationsActive = mDataManager.readBooleanFromMemory(NOTIFICATIONS_STATUS_KEY);
-        notificationsSwitch = findViewById(R.id.activity_notifications_switch);
-        notificationsSwitch.setChecked(isNotificationsActive);
-
-        setCheckBoxesStatus();
-
+        initiateVariables();
+        setClickListeners();
         changeAlarmManagerStatus();
+    }
+
+    private void setClickListeners() {
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isNotificationsActive = isChecked;
             mDataManager.saveBooleanInMemory(NOTIFICATIONS_STATUS_KEY, isNotificationsActive);
             changeAlarmManagerStatus();
+
         });
+
+        sportsCheckbox.setOnCheckedChangeListener(this);
+        artsCheckbox.setOnCheckedChangeListener(this);
+        travelCheckbox.setOnCheckedChangeListener(this);
+        politicsCheckbox.setOnCheckedChangeListener(this);
+        otherCheckbox.setOnCheckedChangeListener(this);
+        businessCheckbox.setOnCheckedChangeListener(this);
+    }
+
+    private void initiateVariables() {
+        mDataManager = new DataManager(NotificationsActivity.this);
+        isNotificationsActive = mDataManager.readBooleanFromMemory(NOTIFICATIONS_STATUS_KEY);
+        notificationsSwitch = findViewById(R.id.activity_notifications_switch);
+        notificationsSwitch.setChecked(isNotificationsActive);
+        setCheckBoxesStatus();
     }
 
     private void setCheckBoxesStatus() {
@@ -74,13 +90,6 @@ public class NotificationsActivity extends AppCompatActivity implements Compound
         politicsCheckbox.setChecked(mDataManager.readBooleanFromMemory(POLITICS_STATUS_KEY));
         otherCheckbox.setChecked(mDataManager.readBooleanFromMemory(OTHER_CATEGORIES_STATUS_KEY));
         businessCheckbox.setChecked(mDataManager.readBooleanFromMemory(BUSINESS_STATUS_KEY));
-
-        sportsCheckbox.setOnCheckedChangeListener(this);
-        artsCheckbox.setOnCheckedChangeListener(this);
-        travelCheckbox.setOnCheckedChangeListener(this);
-        politicsCheckbox.setOnCheckedChangeListener(this);
-        otherCheckbox.setOnCheckedChangeListener(this);
-        businessCheckbox.setOnCheckedChangeListener(this);
     }
 
     private void changeAlarmManagerStatus() {
@@ -92,6 +101,7 @@ public class NotificationsActivity extends AppCompatActivity implements Compound
     }
 
 
+    @SuppressLint("ShortAlarm")
     private void startAlarmManager() {
         Log.d(TAG, "startAlarmManager: ");
         Calendar notificationTime = Calendar.getInstance(); //gets right now
@@ -105,9 +115,8 @@ public class NotificationsActivity extends AppCompatActivity implements Compound
                 .getBroadcast(getApplicationContext(), 0, intent, 0);
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis()+1000,
+                System.currentTimeMillis() + 1000,
                 5000, pendingIntent); //just for test
-
 
 /*        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP
                 , notificationTime.getTimeInMillis()
@@ -122,29 +131,34 @@ public class NotificationsActivity extends AppCompatActivity implements Compound
                 .getBroadcast(getApplicationContext(), 0, intent, 0);
 
         alarmManager.cancel(pendingIntent);
-        Log.d(TAG, "cancelAlarmManager: ");
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()){
-            case R.id.categories_checkboxes_sports: mDataManager
-                    .saveBooleanInMemory(SPORTS_STATUS_KEY, isChecked);
-            break;
-            case R.id.categories_checkboxes_arts: mDataManager
-                    .saveBooleanInMemory(ARTS_STATUS_KEY, isChecked);
+        switch (buttonView.getId()) {
+            case R.id.categories_checkboxes_sports:
+                mDataManager
+                        .saveBooleanInMemory(SPORTS_STATUS_KEY, isChecked);
                 break;
-            case R.id.categories_checkboxes_travel: mDataManager
-                    .saveBooleanInMemory(TRAVEL_STATUS_KEY, isChecked);
+            case R.id.categories_checkboxes_arts:
+                mDataManager
+                        .saveBooleanInMemory(ARTS_STATUS_KEY, isChecked);
                 break;
-            case R.id.categories_checkboxes_politics: mDataManager
-                    .saveBooleanInMemory(POLITICS_STATUS_KEY, isChecked);
+            case R.id.categories_checkboxes_travel:
+                mDataManager
+                        .saveBooleanInMemory(TRAVEL_STATUS_KEY, isChecked);
                 break;
-            case R.id.categories_checkboxes_other_topics: mDataManager
-                    .saveBooleanInMemory(OTHER_CATEGORIES_STATUS_KEY, isChecked);
+            case R.id.categories_checkboxes_politics:
+                mDataManager
+                        .saveBooleanInMemory(POLITICS_STATUS_KEY, isChecked);
                 break;
-            case R.id.categories_checkboxes_business: mDataManager
-                    .saveBooleanInMemory(BUSINESS_STATUS_KEY, isChecked);
+            case R.id.categories_checkboxes_other_topics:
+                mDataManager
+                        .saveBooleanInMemory(OTHER_CATEGORIES_STATUS_KEY, isChecked);
+                break;
+            case R.id.categories_checkboxes_business:
+                mDataManager
+                        .saveBooleanInMemory(BUSINESS_STATUS_KEY, isChecked);
                 break;
         }
     }

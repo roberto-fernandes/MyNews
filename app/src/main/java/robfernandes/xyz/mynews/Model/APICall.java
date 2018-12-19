@@ -17,6 +17,9 @@ public interface APICall {
     @GET("mostpopular/v2/mostviewed/all-sections/7.json?api_key=" + Keys.API_KEY)
     Call<APIResponseMostPopular> mostPopular();
 
-    @GET("search/v2/articlesearch.json?&fl=section_name,web_url,headline,multimedia,snippet,pub_dat&api_key=" + Keys.API_KEY)
-    Call<APIResponseSearch> search(@Query("q") String term, @Query("begin_date") String beginDate, @Query("end_date") String endDate);
+    @GET("search/v2/articlesearch.json?&fl=section_name," +
+            "web_url,headline,multimedia,snippet,pub_dat&api_key=" +
+            Keys.API_KEY)
+    Call<APIResponseSearch> search(@Query("q") String term, @Query("begin_date") String beginDate,
+                                   @Query("end_date") String endDate);
 }
