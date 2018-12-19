@@ -6,11 +6,13 @@
     tools:context=".Controller.Activities.NotificationsActivity"
     android:orientation="vertical"
     android:layout_margin="@dimen/settings_margin">
-    <include
-        layout="@layout/search_query_input"
+    <EditText
+        android:id="@+id/activity_notifications_query_input_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/settings_margin" />
+        android:hint="@string/search_query_hint"
+        android:inputType="text"
+        android:autofillHints="@string/search_query_hint"/>
 
     <include
         layout="@layout/categories_checkboxes"

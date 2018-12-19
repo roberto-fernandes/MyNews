@@ -33,6 +33,8 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
     private boolean other;
     private boolean business;
     private String today;
+    private String queryTerm;
+    NotificationMethods notificationMethods;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -40,6 +42,8 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
         Log.d(TAG, "onReceive: ");
         Calendar rightNow = Calendar.getInstance();
         today = DataManager.formatDateToCallAPI(rightNow);
+        notificationMethods = new NotificationMethods(context);
+        queryTerm = notificationMethods.loadQueryTermFromMemory();
         getCategoriesStatus();
         getNews();
     }
@@ -55,8 +59,6 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
     }
 
     private void createNotifications() {
-        Notifications notifications = new Notifications(context);
-
         String title;
         String message;
         if (newsList != null && newsList.size() > 0) {
@@ -66,7 +68,7 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
             title = "MyNews: We didn't find new news";
             message = "Please check if you are connected to the internet";
         }
-        notifications.createNotification(title, message);
+        notificationMethods.createNotification(title, message);
     }
 
     private void getNews() {
@@ -78,7 +80,7 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
 
         APICall apiCall = retrofit.create(APICall.class);
 
-        Call<APIResponseSearch> call = apiCall.search("", today, today);
+        Call<APIResponseSearch> call = apiCall.search(queryTerm, today, today);
 
         call.enqueue(new Callback<APIResponseSearch>() {
             @Override

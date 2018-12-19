@@ -123,7 +123,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
     }
 
     private void setViews() {
-        searchQueryInput = findViewById(R.id.search_query_input_edit_text);
+        searchQueryInput = findViewById(R.id.activity_search_query_input_edit_text);
         beginDateTextView = findViewById(R.id.activity_search_begin_date_selector);
         endDateTextView = findViewById(R.id.activity_search_end_date_selector);
         mRightNow = Calendar.getInstance();

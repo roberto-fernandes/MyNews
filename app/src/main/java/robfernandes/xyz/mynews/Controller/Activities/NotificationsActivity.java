@@ -7,15 +7,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 
 import java.util.Calendar;
 
 import robfernandes.xyz.mynews.Model.AlarmManagerReceiver;
 import robfernandes.xyz.mynews.Model.DataManager;
+import robfernandes.xyz.mynews.Model.NotificationMethods;
 import robfernandes.xyz.mynews.R;
 
 import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
@@ -41,6 +45,7 @@ public class NotificationsActivity extends AppCompatActivity
     private CheckBox politicsCheckbox;
     private CheckBox otherCheckbox;
     private CheckBox businessCheckbox;
+    private EditText queryTerm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,21 @@ public class NotificationsActivity extends AppCompatActivity
     }
 
     private void setClickListeners() {
+        queryTerm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                NotificationMethods notificationMethods = new
+                        NotificationMethods(NotificationsActivity.this);
+                notificationMethods.saveQueryTermInMemory(s.toString());
+
+            }
+        });
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isNotificationsActive = isChecked;
             mDataManager.saveBooleanInMemory(NOTIFICATIONS_STATUS_KEY, isNotificationsActive);
@@ -69,6 +89,10 @@ public class NotificationsActivity extends AppCompatActivity
     }
 
     private void initiateVariables() {
+        NotificationMethods notificationMethods = new NotificationMethods(
+                NotificationsActivity.this);
+        queryTerm = findViewById(R.id.activity_notifications_query_input_edit_text);
+        queryTerm.setText(notificationMethods.loadQueryTermFromMemory());
         mDataManager = new DataManager(NotificationsActivity.this);
         isNotificationsActive = mDataManager.readBooleanFromMemory(NOTIFICATIONS_STATUS_KEY);
         notificationsSwitch = findViewById(R.id.activity_notifications_switch);

@@ -10,7 +10,7 @@
     <item
         android:id="@+id/menu_toolbar_notifications"
         app:showAsAction="never"
-        android:title="@string/notifications">
+        android:title="@string/notificationMethods">
     </item>
     <item
         android:id="@+id/menu_toolbar_help"

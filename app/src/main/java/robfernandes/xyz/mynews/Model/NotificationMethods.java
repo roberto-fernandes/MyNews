@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
@@ -17,6 +18,7 @@ import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.BEGIN_DATE_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.BUSINESS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.END_DATE_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.NOTIFICATIONS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.NOTIFICATION_ID;
 import static robfernandes.xyz.mynews.Utils.Constants.OTHER_CATEGORIES_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.POLITICS_STATUS_KEY;
@@ -27,11 +29,11 @@ import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 /**
  * Created by Roberto Fernandes on 18/12/2018.
  */
-class Notifications {
+public class NotificationMethods {
     private Context context;
     private NotificationManagerCompat notificationManagerCompat;
 
-    Notifications(Context context) {
+    public NotificationMethods(Context context) {
         this.context = context;
         notificationManagerCompat = NotificationManagerCompat.from(context);
     }
@@ -41,7 +43,7 @@ class Notifications {
         DataManager dataManager = new DataManager(context);
 
         Intent intent = new Intent(context, SearchDisplayActivity.class);
-        intent.putExtra(QUERY_TERM_KEY, "");
+        intent.putExtra(QUERY_TERM_KEY, loadQueryTermFromMemory());
         intent.putExtra(BEGIN_DATE_KEY, today); //YYYYMMDD
         intent.putExtra(END_DATE_KEY, today); //YYYYMMDD
         intent.putExtra(SPORTS_STATUS_KEY,
@@ -71,5 +73,19 @@ class Notifications {
                 .build();
 
         notificationManagerCompat.notify(NOTIFICATION_ID, notification);
+    }
+
+    public void saveQueryTermInMemory(String term) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(NOTIFICATIONS_STATUS_KEY,
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(QUERY_TERM_KEY, term);
+        editor.apply();
+    }
+
+    public String loadQueryTermFromMemory() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(NOTIFICATIONS_STATUS_KEY,
+                Context.MODE_PRIVATE);
+        return sharedPreferences.getString(QUERY_TERM_KEY, "");
     }
 }
