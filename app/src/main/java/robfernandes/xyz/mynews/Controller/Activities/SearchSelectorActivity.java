@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import robfernandes.xyz.mynews.Model.DataManager;
 import robfernandes.xyz.mynews.R;
 
 import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
@@ -49,6 +50,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
     private CheckBox otherCheckbox;
     private CheckBox businessCheckbox;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,8 +58,8 @@ public class SearchSelectorActivity extends AppCompatActivity {
 
         setViews();
         setClickListeners();
-        mBeginDate = formatDateToCallAPI(mRightNow);
-        mEndDate = formatDateToCallAPI(mRightNow);
+        mBeginDate = DataManager.formatDateToCallAPI(mRightNow);
+        mEndDate = DataManager.formatDateToCallAPI(mRightNow);
     }
 
     private void setClickListeners() {
@@ -66,14 +68,14 @@ public class SearchSelectorActivity extends AppCompatActivity {
                     //Set the date on the view when the user finish selecting a date
                     mBeginDateCalendar = Calendar.getInstance();
                     mBeginDateCalendar.set(year, month, dayOfMonth);
-                    mBeginDate = formatDateToCallAPI(mBeginDateCalendar);
+                    mBeginDate = DataManager.formatDateToCallAPI(mBeginDateCalendar);
                     displayTime(beginDateTextView, mBeginDateCalendar);
                 };
         mEndDateSetListener = (view, year, month, dayOfMonth) -> {
             //Set the date on the view when the user finish selecting a date
             mEndDateCalendar = Calendar.getInstance();
             mEndDateCalendar.set(year, month, dayOfMonth);
-            mEndDate = formatDateToCallAPI(mEndDateCalendar);
+            mEndDate = DataManager.formatDateToCallAPI(mEndDateCalendar);
             displayTime(endDateTextView, mEndDateCalendar);
         };
         beginDateTextView.setOnClickListener(setDatePicker(beginDateSetListener));
@@ -133,7 +135,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
         artsCheckbox = findViewById(R.id.categories_checkboxes_arts);
         travelCheckbox = findViewById(R.id.categories_checkboxes_travel);
         politicsCheckbox = findViewById(R.id.categories_checkboxes_politics);
-        otherCheckbox = findViewById(R.id.categories_checkboxes_others_topics);
+        otherCheckbox = findViewById(R.id.categories_checkboxes_other_topics);
         businessCheckbox = findViewById(R.id.categories_checkboxes_business);
     }
 
@@ -144,12 +146,4 @@ public class SearchSelectorActivity extends AppCompatActivity {
         String dateString = format.format(date.getTime());
         textView.setText(dateString);
     }
-
-    private String formatDateToCallAPI(Calendar date) {
-        SimpleDateFormat format;
-        format = new SimpleDateFormat("yyyyMMdd");
-        String dateString = format.format(date.getTime());
-        return dateString;
-    }
-
 }

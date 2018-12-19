@@ -20,7 +20,7 @@ public class NewsDisplayActivity extends AppCompatActivity {
         Intent intent = getIntent();
         url = intent.getStringExtra("URL");
         WebView webview = findViewById(R.id.activity_news_web_view);
-        webview.setWebViewClient(new WebViewClient()); //to display on the app ot in some browser
+        webview.setWebViewClient(new WebViewClient()); //to display on the app not in other browser
         webview.loadUrl(url);
     }
 }

@@ -54,7 +54,7 @@
             android:text="@string/business" />
 
         <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/categories_checkboxes_others_topics"
+            android:id="@+id/categories_checkboxes_other_topics"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"

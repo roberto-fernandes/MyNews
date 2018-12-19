@@ -3,7 +3,9 @@ package robfernandes.xyz.mynews.Model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static robfernandes.xyz.mynews.Utils.Constants.NOTIFICATIONS_CATEGORIES;
@@ -22,29 +24,13 @@ public class DataManager {
         sharedPreferences = context.getSharedPreferences(NOTIFICATIONS_STATUS_KEY, Context.MODE_PRIVATE);
     }
 
-    public boolean readSportsCheckboxStatusFromMemory() {
-        return readBooleanFromMemory(NOTIFICATIONS_STATUS_KEY);
-    }
-
-    public void saveSportsCheckboxStatusInMemory (boolean isActive) {
-        saveBooleanInMemory(NOTIFICATIONS_STATUS_KEY, isActive);
-    }
-
-    public boolean readNotificationsStatusFromMemory() {
-        return readBooleanFromMemory(NOTIFICATIONS_STATUS_KEY);
-    }
-
-    public void saveNotificationsStatusInMemory (boolean isActive) {
-        saveBooleanInMemory(NOTIFICATIONS_STATUS_KEY, isActive);
-    }
-
-    private void saveBooleanInMemory (String key, boolean status) {
+    public void saveBooleanInMemory (String key, boolean status) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, status);
         editor.apply();
     }
 
-    private boolean readBooleanFromMemory (String key) {
+    public boolean readBooleanFromMemory (String key) {
         return sharedPreferences.getBoolean(key, false);
     }
 
@@ -81,6 +67,13 @@ public class DataManager {
                 newsListFiltered.add(news);
             }
         }
+    }
+
+    public static String formatDateToCallAPI(Calendar date) {
+        SimpleDateFormat format;
+        format = new SimpleDateFormat("yyyyMMdd");
+        String dateString = format.format(date.getTime());
+        return dateString;
     }
 
 }
