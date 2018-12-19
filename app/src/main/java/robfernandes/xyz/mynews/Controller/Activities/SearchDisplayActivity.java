@@ -59,6 +59,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
 
     private void getSearchData() {
         Intent intent = getIntent();
+
         term = intent.getStringExtra(QUERY_TERM_KEY);
         beginDate = intent.getStringExtra(BEGIN_DATE_KEY);
         endDate = intent.getStringExtra(END_DATE_KEY);

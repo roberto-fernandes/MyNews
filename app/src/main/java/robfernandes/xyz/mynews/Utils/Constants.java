@@ -41,4 +41,5 @@ public final class Constants {
     public static final String QUERY_TERM_KEY = "QueryTermKey";
     public static final String BEGIN_DATE_KEY = "BeginDateKey";
     public static final String END_DATE_KEY = "EndDateKey";
+    public static final String FROM_NOTIFICATION_KEY = "FromNotificationKey";
 }
