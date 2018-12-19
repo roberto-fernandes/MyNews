@@ -66,7 +66,7 @@ public class NotificationMethods {
                 .setSmallIcon(R.drawable.ic_star)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(NotificationCompat.CATEGORY_RECOMMENDATION)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
