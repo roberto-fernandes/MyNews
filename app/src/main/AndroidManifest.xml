@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".Utils.Channels"
+        android:name=".NewsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.Activities.MainActivity"
+            android:name=".ui.Activities.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -25,66 +25,66 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.Activities.SearchSelectorActivity"
+            android:name=".ui.Activities.SearchSelectorActivity"
             android:label="Search"
-            android:parentActivityName=".Controller.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.MainActivity" />
+                android:value=".ui.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.Activities.AboutActivity"
+            android:name=".ui.Activities.AboutActivity"
             android:label="About"
-            android:parentActivityName=".Controller.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.MainActivity" />
+                android:value=".ui.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.Activities.NotificationsActivity"
+            android:name=".ui.Activities.NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".Controller.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.MainActivity" />
+                android:value=".ui.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.Activities.HelpActivity"
+            android:name=".ui.Activities.HelpActivity"
             android:label="Help"
-            android:parentActivityName=".Controller.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.MainActivity" />
+                android:value=".ui.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.Activities.NewsDisplayActivity"
+            android:name=".ui.Activities.NewsDisplayActivity"
             android:label="NewsDisplay"
-            android:parentActivityName=".Controller.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.MainActivity" />
+                android:value=".ui.Activities.MainActivity" />
         </activity>
         <activity
-            android:name=".Controller.Activities.SearchDisplayActivity"
+            android:name=".ui.Activities.SearchDisplayActivity"
             android:label="SearchDisplay"
-            android:parentActivityName=".Controller.Activities.SearchSelectorActivity">
+            android:parentActivityName=".ui.Activities.SearchSelectorActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Activities.SearchSelectorActivity" />
+                android:value=".ui.Activities.SearchSelectorActivity" />
         </activity>
-        <receiver android:name=".Model.AlarmManagerReceiver"></receiver>
+        <receiver android:name=".receiver.AlarmManagerReceiver"></receiver>
     </application>
 
 </manifest>

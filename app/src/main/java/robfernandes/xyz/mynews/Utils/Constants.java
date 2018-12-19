@@ -2,12 +2,12 @@ package robfernandes.xyz.mynews.Utils;
 
 import android.support.v4.app.Fragment;
 
-import robfernandes.xyz.mynews.Controller.Fragments.TopStories.ArtsFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TopStories.BusinessFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.MostPopular.MostPopularFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TopStories.SportsFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TopStories.TopStoriesFragment;
-import robfernandes.xyz.mynews.Controller.Fragments.TopStories.TravelFragment;
+import robfernandes.xyz.mynews.ui.Fragments.TopStories.ArtsFragment;
+import robfernandes.xyz.mynews.ui.Fragments.TopStories.BusinessFragment;
+import robfernandes.xyz.mynews.ui.Fragments.MostPopular.MostPopularFragment;
+import robfernandes.xyz.mynews.ui.Fragments.TopStories.SportsFragment;
+import robfernandes.xyz.mynews.ui.Fragments.TopStories.TopStoriesFragment;
+import robfernandes.xyz.mynews.ui.Fragments.TopStories.TravelFragment;
 
 /**
  * Created by Roberto Fernandes on 05/12/2018.
@@ -45,4 +45,7 @@ public final class Constants {
     public static final String QUERY_TERM_KEY = "QueryTermKey";
     public static final String BEGIN_DATE_KEY = "BeginDateKey";
     public static final String END_DATE_KEY = "EndDateKey";
+    public interface FilterKeys {
+        String NOTIFICATIONS_STATUS_KEY = "NotificationStatusKey";
+    }
 }
