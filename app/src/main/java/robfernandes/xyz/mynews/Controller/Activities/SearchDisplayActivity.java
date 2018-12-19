@@ -18,8 +18,18 @@ import robfernandes.xyz.mynews.Model.APICall;
 import robfernandes.xyz.mynews.Model.APIResponseSearch;
 import robfernandes.xyz.mynews.Model.DataManager;
 import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.Utils.Constants;
 import robfernandes.xyz.mynews.View.SearchAdapter;
+
+import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
+import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.BEGIN_DATE_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.BUSINESS_STATUS_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.END_DATE_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.OTHER_CATEGORIES_STATUS_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.POLITICS_STATUS_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.QUERY_TERM_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_STATUS_KEY;
+import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 
 public class SearchDisplayActivity extends AppCompatActivity {
     private String term;
@@ -49,20 +59,20 @@ public class SearchDisplayActivity extends AppCompatActivity {
 
     private void getSearchData() {
         Intent intent = getIntent();
-        term = intent.getStringExtra("term");
-        beginDate = intent.getStringExtra("begin_date");
-        endDate = intent.getStringExtra("end_date");
-        sportsCheckbox = intent.getBooleanExtra("sportsCheckbox", false);
-        artsCheckbox = intent.getBooleanExtra("artsCheckbox", false);
-        travelCheckbox = intent.getBooleanExtra("travelCheckbox", false);
-        politicsCheckbox = intent.getBooleanExtra("politicsCheckbox", false);
-        otherCheckbox = intent.getBooleanExtra("otherCheckbox", false);
-        businessCheckbox = intent.getBooleanExtra("businessCheckbox", false);
+        term = intent.getStringExtra(QUERY_TERM_KEY);
+        beginDate = intent.getStringExtra(BEGIN_DATE_KEY);
+        endDate = intent.getStringExtra(END_DATE_KEY);
+        sportsCheckbox = intent.getBooleanExtra(SPORTS_STATUS_KEY, false);
+        artsCheckbox = intent.getBooleanExtra(ARTS_STATUS_KEY, false);
+        travelCheckbox = intent.getBooleanExtra(TRAVEL_STATUS_KEY, false);
+        politicsCheckbox = intent.getBooleanExtra(POLITICS_STATUS_KEY, false);
+        otherCheckbox = intent.getBooleanExtra(OTHER_CATEGORIES_STATUS_KEY, false);
+        businessCheckbox = intent.getBooleanExtra(BUSINESS_STATUS_KEY, false);
     }
 
     private void setItems() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.API_BASE_URL)
+                .baseUrl(API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

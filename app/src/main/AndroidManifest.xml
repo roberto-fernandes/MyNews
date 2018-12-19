@@ -83,7 +83,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Controller.Activities.SearchSelectorActivity" />
         </activity>
-        <receiver android:name=".Controller.Activities.AlarmManagerReceiver"></receiver>
+        <receiver android:name=".Model.AlarmManagerReceiver"></receiver>
     </application>
 
 </manifest>

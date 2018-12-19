@@ -22,10 +22,7 @@ public class Notifications {
         notificationManagerCompat = NotificationManagerCompat.from(context);
     }
 
-    public void createNotification() {
-        String title = "some title";
-        String message = "some mesaage";
-
+    public void createNotification(String title, String message) {
         Notification notification = new NotificationCompat.Builder(context, Channels.CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_star)
                 .setContentTitle(title)

@@ -22,7 +22,6 @@ public final class Constants {
     public static final int ARTS_INDEX = 4;
     public static final int TRAVEL_INDEX = 5;
     public static final String API_BASE_URL = "https://api.nytimes.com/svc/";
-    public static final String ERROR_MESSAGE = "We were not able to load the news, please try again later";
     public static final String TOP_STORIES_SECTION = "home";
     public static final String SPORTS_SECTION = "sports";
     public static final String ARTS_SECTION = "arts";
@@ -31,4 +30,15 @@ public final class Constants {
     public static final int HOUR_NOTIFICATION = 19;
     public static final int MINUTES_NOTIFICATION = 0;
     public static final int NOTIFICATION_ID = Integer.MIN_VALUE;
+    public static final String[] NOTIFICATIONS_CATEGORIES = {"Sports", "Arts", "Travel",  "Politics", "Business"};
+    public static final String NOTIFICATIONS_STATUS_KEY = "NotificationStatusKey";
+    public static final String SPORTS_STATUS_KEY = "SportsStatusKey";
+    public static final String ARTS_STATUS_KEY = "ArtsStatusKey";
+    public static final String TRAVEL_STATUS_KEY = "TravelStatusKey";
+    public static final String POLITICS_STATUS_KEY = "PoliticsStatusKey";
+    public static final String BUSINESS_STATUS_KEY = "BusinessStatusKey";
+    public static final String OTHER_CATEGORIES_STATUS_KEY = "OCStatusKey";
+    public static final String QUERY_TERM_KEY = "QueryTermKey";
+    public static final String BEGIN_DATE_KEY = "BeginDateKey";
+    public static final String END_DATE_KEY = "EndDateKey";
 }

@@ -11,6 +11,7 @@ import android.widget.Switch;
 
 import java.util.Calendar;
 
+import robfernandes.xyz.mynews.Model.AlarmManagerReceiver;
 import robfernandes.xyz.mynews.Model.DataManager;
 import robfernandes.xyz.mynews.R;
 import robfernandes.xyz.mynews.Utils.Constants;
