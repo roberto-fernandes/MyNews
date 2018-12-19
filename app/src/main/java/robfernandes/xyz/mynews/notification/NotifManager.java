@@ -10,10 +10,10 @@ import android.support.v4.app.NotificationManagerCompat;
 
 import java.util.Calendar;
 
+import robfernandes.xyz.mynews.NewsApplication;
+import robfernandes.xyz.mynews.R;
 import robfernandes.xyz.mynews.storage.local.DataManager;
 import robfernandes.xyz.mynews.ui.Activities.SearchDisplayActivity;
-import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.NewsApplication;
 
 import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.BEGIN_DATE_KEY;
