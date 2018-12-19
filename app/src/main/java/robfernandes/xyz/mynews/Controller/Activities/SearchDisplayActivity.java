@@ -2,7 +2,6 @@ package robfernandes.xyz.mynews.Controller.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,7 +27,6 @@ public class SearchDisplayActivity extends AppCompatActivity {
     private String endDate;
     private RecyclerView recyclerView;
     private SearchAdapter searchAdapter;
-    private SwipeRefreshLayout swipeRefreshLayout;
     private List<APIResponseSearch.Doc> mNewsList;
     private static final String TAG = "SearchDisplayActivity";
     private DataManager mDataManager;
@@ -45,9 +43,8 @@ public class SearchDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_display);
 
         mDataManager = new DataManager(SearchDisplayActivity.this);
-        configureSwipeRefreshLayout();
         getSearchData();
-        setItems(false);
+        setItems();
     }
 
     private void getSearchData() {
@@ -63,7 +60,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
         businessCheckbox = intent.getBooleanExtra("businessCheckbox", false);
     }
 
-    private void setItems(final boolean isRefreshing) {
+    private void setItems() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -86,11 +83,7 @@ public class SearchDisplayActivity extends AppCompatActivity {
                     mNewsList = mDataManager.createNewsListFiltered(
                             apiResponseSearch.getResponse().getDocs(), sportsCheckbox, artsCheckbox
                             , travelCheckbox, politicsCheckbox, businessCheckbox, otherCheckbox);
-                    if (isRefreshing) {
-                        updateUI();
-                    } else {
                         configureRecyclerView();
-                    }
                 } else {
                     Log.d(TAG, "sss onResponse: noo " + response);
                 }
@@ -109,16 +102,4 @@ public class SearchDisplayActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchDisplayActivity.this));
         recyclerView.setAdapter(searchAdapter);
     }
-
-    private void configureSwipeRefreshLayout() {
-        swipeRefreshLayout = findViewById(R.id.activity_search_display_swipe_refresh_layout);
-        swipeRefreshLayout.setOnRefreshListener(() -> setItems(true));
-    }
-
-    private void updateUI() {
-        swipeRefreshLayout.setRefreshing(false);
-        searchAdapter.notifyDataSetChanged();
-    }
-
-
 }
