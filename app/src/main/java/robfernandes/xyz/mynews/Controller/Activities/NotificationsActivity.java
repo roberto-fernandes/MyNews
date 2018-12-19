@@ -11,13 +11,13 @@ import android.widget.Switch;
 
 import java.util.Calendar;
 
-import robfernandes.xyz.mynews.Model.DataStorage;
+import robfernandes.xyz.mynews.Model.DataManager;
 import robfernandes.xyz.mynews.R;
 import robfernandes.xyz.mynews.Utils.Constants;
 
 public class NotificationsActivity extends AppCompatActivity {
 
-    private DataStorage mDataStorage;
+    private DataManager mDataManager;
     private boolean isNotificationsActive;
     private Switch notificationsSwitch;
     private static final String TAG = "NotificationsActivity";
@@ -27,15 +27,15 @@ public class NotificationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
 
-        mDataStorage = new DataStorage(NotificationsActivity.this);
-        isNotificationsActive = mDataStorage.readNotificationsStatusFromMemory();
+        mDataManager = new DataManager(NotificationsActivity.this);
+        isNotificationsActive = mDataManager.readNotificationsStatusFromMemory();
         notificationsSwitch = findViewById(R.id.activity_notifications_switch);
         notificationsSwitch.setChecked(isNotificationsActive);
 
         changeAlarmManagerStatus();
         notificationsSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             isNotificationsActive = isChecked;
-            mDataStorage.saveNotificationsStatusInMemory(isNotificationsActive);
+            mDataManager.saveNotificationsStatusInMemory(isNotificationsActive);
             changeAlarmManagerStatus();
         });
     }
