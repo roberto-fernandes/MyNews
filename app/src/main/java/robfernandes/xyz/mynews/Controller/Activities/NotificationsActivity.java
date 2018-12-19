@@ -138,14 +138,14 @@ public class NotificationsActivity extends AppCompatActivity
         PendingIntent pendingIntent = PendingIntent
                 .getBroadcast(getApplicationContext(), 0, intent, 0);
 
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+/*        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
                 System.currentTimeMillis() + 1000,
-                5000, pendingIntent); //just for test
+                5000, pendingIntent); //just for test*/
 
-/*        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP
                 , notificationTime.getTimeInMillis()
                 , AlarmManager.INTERVAL_DAY
-                , pendingIntent);*/
+                , pendingIntent);
     }
 
     private void cancelAlarmManager() {
