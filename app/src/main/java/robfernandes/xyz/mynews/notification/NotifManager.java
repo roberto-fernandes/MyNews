@@ -30,9 +30,10 @@ import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 /**
  * Created by Roberto Fernandes on 18/12/2018.
  */
+@SuppressWarnings("SpellCheckingInspection")
 public class NotifManager {
-    private Context context;
-    private NotificationManagerCompat notificationManagerCompat;
+    private final Context context;
+    private final NotificationManagerCompat notificationManagerCompat;
 
     public NotifManager(Context context) {
         this.context = context;

@@ -12,6 +12,7 @@ import robfernandes.xyz.mynews.network.model.APIResponseTopStories;
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
+@SuppressWarnings("SpellCheckingInspection")
 public interface NewsService {
 
     @GET("topstories/v2/{section}.json?api_key=" + APIKeys.API_KEY)

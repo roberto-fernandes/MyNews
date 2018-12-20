@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Roberto Fernandes on 15/12/2018.
  */
+@SuppressWarnings("unused")
 public class APIResponseMostPopular {
 
     @SerializedName("status")
@@ -296,6 +297,7 @@ public class APIResponseMostPopular {
 
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     public class MediaMetadatum {
 
         @SerializedName("url")

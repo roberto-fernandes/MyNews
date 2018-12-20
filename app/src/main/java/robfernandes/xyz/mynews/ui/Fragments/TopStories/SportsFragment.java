@@ -3,16 +3,9 @@ package robfernandes.xyz.mynews.ui.Fragments.TopStories;
 
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
 import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_SECTION;
 
 public class SportsFragment extends BaseFragment {
-
-
-    @Override
-    protected String getURL() {
-        return API_BASE_URL;
-    }
 
     @Override
     protected int getSwipeRefreshLayoutID() {

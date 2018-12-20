@@ -29,6 +29,7 @@ import static robfernandes.xyz.mynews.Utils.Constants.QUERY_TERM_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_STATUS_KEY;
 import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
 
+@SuppressWarnings("ALL")
 public class SearchSelectorActivity extends AppCompatActivity {
 
     private TextView beginDateTextView;
@@ -36,7 +37,6 @@ public class SearchSelectorActivity extends AppCompatActivity {
     private EditText searchQueryInput;
     private Calendar mRightNow;
     private Calendar mBeginDateCalendar;
-    private DatePickerDialog.OnDateSetListener mEndDateSetListener;
     private Calendar mEndDateCalendar;
     private String term;
     private String mBeginDate;
@@ -69,7 +69,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
                     mBeginDate = DataManager.formatDateToCallAPI(mBeginDateCalendar);
                     displayTime(beginDateTextView, mBeginDateCalendar);
                 };
-        mEndDateSetListener = (view, year, month, dayOfMonth) -> {
+        DatePickerDialog.OnDateSetListener endDateSetListener = (view, year, month, dayOfMonth) -> {
             //Set the date on the view when the user finish selecting a date
             mEndDateCalendar = Calendar.getInstance();
             mEndDateCalendar.set(year, month, dayOfMonth);
@@ -77,7 +77,7 @@ public class SearchSelectorActivity extends AppCompatActivity {
             displayTime(endDateTextView, mEndDateCalendar);
         };
         beginDateTextView.setOnClickListener(setDatePicker(beginDateSetListener));
-        endDateTextView.setOnClickListener(setDatePicker(mEndDateSetListener));
+        endDateTextView.setOnClickListener(setDatePicker(endDateSetListener));
 
         Button button = findViewById(R.id.activity_search_button);
         button.setOnClickListener(v -> {

@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Roberto Fernandes on 17/12/2018.
  */
+@SuppressWarnings("ALL")
 public class APIResponseSearch {
     @SerializedName("response")
     @Expose

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="robfernandes.xyz.mynews">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,12 +12,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity
             android:name=".ui.Activities.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +30,8 @@
         <activity
             android:name=".ui.Activities.SearchSelectorActivity"
             android:label="Search"
-            android:parentActivityName=".ui.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -37,7 +41,8 @@
         <activity
             android:name=".ui.Activities.AboutActivity"
             android:label="About"
-            android:parentActivityName=".ui.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -47,7 +52,8 @@
         <activity
             android:name=".ui.Activities.NotificationsActivity"
             android:label="Notifications"
-            android:parentActivityName=".ui.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -57,7 +63,8 @@
         <activity
             android:name=".ui.Activities.HelpActivity"
             android:label="Help"
-            android:parentActivityName=".ui.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -67,7 +74,8 @@
         <activity
             android:name=".ui.Activities.NewsDisplayActivity"
             android:label="NewsDisplay"
-            android:parentActivityName=".ui.Activities.MainActivity">
+            android:parentActivityName=".ui.Activities.MainActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -77,14 +85,16 @@
         <activity
             android:name=".ui.Activities.SearchDisplayActivity"
             android:label="SearchDisplay"
-            android:parentActivityName=".ui.Activities.SearchSelectorActivity">
+            android:parentActivityName=".ui.Activities.SearchSelectorActivity"
+            tools:ignore="InnerclassSeparator">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.Activities.SearchSelectorActivity" />
         </activity>
-        <receiver android:name=".receiver.AlarmManagerReceiver"></receiver>
+
+        <receiver android:name=".receiver.AlarmManagerReceiver" />
     </application>
 
 </manifest>

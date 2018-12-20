@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/search_query_hint"
         android:inputType="text"
-        android:autofillHints="@string/search_query_hint"/>
+        android:autofillHints="@string/search_query_hint"
+        tools:targetApi="o" />
 
     <include
         layout="@layout/categories_checkboxes"

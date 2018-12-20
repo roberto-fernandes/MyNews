@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/search_query_hint"
         android:inputType="text"
-        android:autofillHints="@string/search_query_hint"/>
+        android:autofillHints="@string/search_query_hint"
+        tools:targetApi="o" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,7 +58,8 @@
                 android:layout_marginBottom="@dimen/settings_margin"
                 android:text="@string/end_date"
                 android:textSize="@dimen/date_text_size"
-                android:gravity="center_horizontal"/>
+                android:gravity="center_horizontal"
+                tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/activity_search_end_date_selector"
@@ -66,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/settings_margin"
                 android:layout_marginBottom="@dimen/settings_margin"
-                android:textSize="@dimen/date_text_size" />
+                android:textSize="@dimen/date_text_size"
+                tools:ignore="RtlHardcoded" />
         </LinearLayout>
     </LinearLayout>
     <include

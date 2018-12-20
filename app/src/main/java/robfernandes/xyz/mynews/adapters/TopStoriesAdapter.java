@@ -22,8 +22,8 @@ import robfernandes.xyz.mynews.R;
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.ViewHolder> {
-    private List<APIResponseTopStories.Result> mNewsResultsList;
-    private Context mContext;
+    private final List<APIResponseTopStories.Result> mNewsResultsList;
+    private final Context mContext;
 
     public TopStoriesAdapter(List<APIResponseTopStories.Result> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
@@ -78,10 +78,10 @@ public class TopStoriesAdapter extends RecyclerView.Adapter<TopStoriesAdapter.Vi
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView title;
-        private ImageView image;
-        private TextView category;
-        private TextView date;
+        private final TextView title;
+        private final ImageView image;
+        private final TextView category;
+        private final TextView date;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);

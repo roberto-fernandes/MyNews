@@ -12,12 +12,6 @@ import robfernandes.xyz.mynews.Utils.Constants;
  */
 public class TopStoriesFragment extends BaseFragment {
 
-
-    @Override
-    protected String getURL() {
-        return Constants.API_BASE_URL;
-    }
-
     @Override
     protected int getSwipeRefreshLayoutID() {
         return R.id.fragment_top_stories_swipe_refresh_layout;

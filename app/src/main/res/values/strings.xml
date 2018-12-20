@@ -19,6 +19,8 @@
     <string name="search_btn">Search</string>
     <string name="enable_notifications_once_per_day">Enable notificationMethods (once per day)</string>
     <string name="news_image">News Image</string>
-    <string name="world">World</string>
     <string name="other_topics">Other Topics</string>
+    <string name="search">Search</string>
+    <string name="help_activity">help activity</string>
+    <string name="about_activity">about activity</string>
 </resources>

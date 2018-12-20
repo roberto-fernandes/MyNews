@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by Roberto Fernandes on 12/12/2018.
  */
+@SuppressWarnings("unused")
 public class APIResponseTopStories {
 
     @SerializedName("status")
@@ -40,6 +41,7 @@ public class APIResponseTopStories {
         this.status = status;
     }
 
+    @SuppressWarnings("unused")
     public String getCopyright() {
         return copyright;
     }
@@ -88,6 +90,7 @@ public class APIResponseTopStories {
         this.shortUrl = shortUrl;
     }
 
+    @SuppressWarnings("unused")
     public class Result {
 
         @SerializedName("section")
@@ -368,6 +371,7 @@ public class APIResponseTopStories {
 
     }
 
+    @SuppressWarnings({"SpellCheckingInspection", "unused"})
     public class Multimedium {
 
         @SerializedName("url")

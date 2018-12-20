@@ -23,8 +23,8 @@ import robfernandes.xyz.mynews.R;
  */
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    private List<APIResponseSearch.Doc> mNewsResultsList;
-    private Context mContext;
+    private final List<APIResponseSearch.Doc> mNewsResultsList;
+    private final Context mContext;
 
     public SearchAdapter(List<APIResponseSearch.Doc> newsResultsList, Context context) {
         mNewsResultsList = newsResultsList;
@@ -77,10 +77,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView title;
-        private ImageView image;
-        private TextView date;
-        private TextView category;
+        private final TextView title;
+        private final ImageView image;
+        private final TextView date;
+        private final TextView category;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);

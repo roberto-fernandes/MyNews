@@ -6,17 +6,11 @@ import android.support.v4.app.Fragment;
 import robfernandes.xyz.mynews.R;
 
 import static robfernandes.xyz.mynews.Utils.Constants.ARTS_SECTION;
-import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ArtsFragment extends BaseFragment {
-
-    @Override
-    protected String getURL() {
-        return API_BASE_URL;
-    }
 
     @Override
     protected int getSwipeRefreshLayoutID() {

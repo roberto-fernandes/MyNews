@@ -25,7 +25,7 @@ import robfernandes.xyz.mynews.ui.Activities.NewsDisplayActivity;
  * Created by Roberto Fernandes on 12/12/2018.
  */
 public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.ViewHolder> {
-    private List<Result> mNewsResultsList;
+    private final List<Result> mNewsResultsList;
     private final Context mContext;
 
     public MostPopularAdapter(
@@ -78,10 +78,10 @@ public class MostPopularAdapter extends RecyclerView.Adapter<MostPopularAdapter.
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView title;
-        private ImageView image;
-        private TextView category;
-        private TextView date;
+        private final TextView title;
+        private final ImageView image;
+        private final TextView category;
+        private final TextView date;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
