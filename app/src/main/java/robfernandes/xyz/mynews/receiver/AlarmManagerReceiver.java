@@ -19,9 +19,7 @@ import robfernandes.xyz.mynews.network.model.APIResponseSearch;
 import robfernandes.xyz.mynews.storage.local.DataManager;
 import robfernandes.xyz.mynews.notification.NotifManager;
 
-import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
-import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_STATUS_KEY;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 /**
  * Created by Roberto Fernandes on 18/12/2018.
@@ -54,12 +52,12 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
 
     private void getCategoriesStatus() {
         DataManager dataManager = new DataManager(context);
-        sports = dataManager.readBooleanFromMemory(SPORTS_STATUS_KEY);
-        arts = dataManager.readBooleanFromMemory(ARTS_STATUS_KEY);
-        travel = dataManager.readBooleanFromMemory(ARTS_STATUS_KEY);
-        politics = dataManager.readBooleanFromMemory(ARTS_STATUS_KEY);
-        other = dataManager.readBooleanFromMemory(ARTS_STATUS_KEY);
-        business = dataManager.readBooleanFromMemory(ARTS_STATUS_KEY);
+        sports = dataManager.readBooleanFromMemory(FilterKeys.SPORTS_STATUS_KEY);
+        arts = dataManager.readBooleanFromMemory(FilterKeys.ARTS_STATUS_KEY);
+        travel = dataManager.readBooleanFromMemory(FilterKeys.ARTS_STATUS_KEY);
+        politics = dataManager.readBooleanFromMemory(FilterKeys.ARTS_STATUS_KEY);
+        other = dataManager.readBooleanFromMemory(FilterKeys.ARTS_STATUS_KEY);
+        business = dataManager.readBooleanFromMemory(FilterKeys.ARTS_STATUS_KEY);
     }
 
     private void createNotifications() {
@@ -78,7 +76,7 @@ public class AlarmManagerReceiver extends BroadcastReceiver {
     private void getNews() {
         DataManager mDataManager = new DataManager(context);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
+                .baseUrl(APIConstants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

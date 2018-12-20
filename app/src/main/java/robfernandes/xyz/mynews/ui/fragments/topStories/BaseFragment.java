@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.ui.Fragments.TopStories;
+package robfernandes.xyz.mynews.ui.fragments.topStories;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,7 +22,7 @@ import robfernandes.xyz.mynews.adapters.TopStoriesAdapter;
 import robfernandes.xyz.mynews.network.NewsService;
 import robfernandes.xyz.mynews.network.model.APIResponseTopStories;
 
-import static robfernandes.xyz.mynews.Utils.Constants.API_BASE_URL;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 /**
  * Created by Roberto Fernandes on 14/12/2018.
@@ -56,7 +56,7 @@ public abstract class BaseFragment extends Fragment {
 
     private void setItems(final boolean isRefreshing) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(API_BASE_URL)
+                .baseUrl(APIConstants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

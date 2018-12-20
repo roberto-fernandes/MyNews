@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.ui.Activities;
+package robfernandes.xyz.mynews.ui.activities;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -19,15 +19,7 @@ import java.util.Calendar;
 import robfernandes.xyz.mynews.storage.local.DataManager;
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.ARTS_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.BEGIN_DATE_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.BUSINESS_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.END_DATE_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.OTHER_CATEGORIES_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.POLITICS_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.QUERY_TERM_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_STATUS_KEY;
-import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_STATUS_KEY;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 @SuppressWarnings("ALL")
 public class SearchSelectorActivity extends AppCompatActivity {
@@ -90,15 +82,15 @@ public class SearchSelectorActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(SearchSelectorActivity.this,
                         SearchDisplayActivity.class);
-                intent.putExtra(QUERY_TERM_KEY, term);
-                intent.putExtra(BEGIN_DATE_KEY, mBeginDate); //YYYYMMDD
-                intent.putExtra(END_DATE_KEY, mEndDate); //YYYYMMDD
-                intent.putExtra(SPORTS_STATUS_KEY, sportsCheckbox.isChecked());
-                intent.putExtra(ARTS_STATUS_KEY, artsCheckbox.isChecked());
-                intent.putExtra(TRAVEL_STATUS_KEY, travelCheckbox.isChecked());
-                intent.putExtra(POLITICS_STATUS_KEY, politicsCheckbox.isChecked());
-                intent.putExtra(OTHER_CATEGORIES_STATUS_KEY, otherCheckbox.isChecked());
-                intent.putExtra(BUSINESS_STATUS_KEY, businessCheckbox.isChecked());
+                intent.putExtra(FilterKeys.QUERY_TERM_KEY, term);
+                intent.putExtra(FilterKeys.BEGIN_DATE_KEY, mBeginDate); //YYYYMMDD
+                intent.putExtra(FilterKeys.END_DATE_KEY, mEndDate); //YYYYMMDD
+                intent.putExtra(FilterKeys.SPORTS_STATUS_KEY, sportsCheckbox.isChecked());
+                intent.putExtra(FilterKeys.ARTS_STATUS_KEY, artsCheckbox.isChecked());
+                intent.putExtra(FilterKeys.TRAVEL_STATUS_KEY, travelCheckbox.isChecked());
+                intent.putExtra(FilterKeys.POLITICS_STATUS_KEY, politicsCheckbox.isChecked());
+                intent.putExtra(FilterKeys.OTHER_CATEGORIES_STATUS_KEY, otherCheckbox.isChecked());
+                intent.putExtra(FilterKeys.BUSINESS_STATUS_KEY, businessCheckbox.isChecked());
                 startActivity(intent);
             } else {
                 Toast.makeText(SearchSelectorActivity.this,

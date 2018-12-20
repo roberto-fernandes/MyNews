@@ -1,10 +1,10 @@
-package robfernandes.xyz.mynews.ui.Fragments.TopStories;
+package robfernandes.xyz.mynews.ui.fragments.topStories;
 
 
 import android.support.v4.app.Fragment;
 
 import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.Utils.Constants;
+import robfernandes.xyz.mynews.utils.Constants.*;
 
 
 /**
@@ -29,6 +29,6 @@ public class TopStoriesFragment extends BaseFragment {
 
     @Override
     protected String getSection() {
-        return Constants.TOP_STORIES_SECTION;
+        return APIConstants.TOP_STORIES_SECTION;
     }
 }

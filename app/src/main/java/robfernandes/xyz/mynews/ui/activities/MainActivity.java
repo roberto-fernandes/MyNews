@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.ui.Activities;
+package robfernandes.xyz.mynews.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,14 +18,7 @@ import android.view.MenuItem;
 import robfernandes.xyz.mynews.adapters.PageAdapter;
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.ARTS_INDEX;
-import static robfernandes.xyz.mynews.Utils.Constants.BUSINESS_INDEX;
-import static robfernandes.xyz.mynews.Utils.Constants.FRAGMENTS;
-import static robfernandes.xyz.mynews.Utils.Constants.MOST_POPULAR_INDEX;
-import static robfernandes.xyz.mynews.Utils.Constants.PAGE_TITLE;
-import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_INDEX;
-import static robfernandes.xyz.mynews.Utils.Constants.TOP_STORIES_INDEX;
-import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_INDEX;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,22 +64,22 @@ public class MainActivity extends AppCompatActivity
         int index;
         switch (item.getItemId()) {
             case R.id.menu_drawer_sports:
-                index = SPORTS_INDEX;
+                index = FragmentsConstants.SPORTS_INDEX;
                 break;
             case R.id.menu_drawer_arts:
-                index = ARTS_INDEX;
+                index = FragmentsConstants.ARTS_INDEX;
                 break;
             case R.id.menu_drawer_business:
-                index = BUSINESS_INDEX;
+                index = FragmentsConstants.BUSINESS_INDEX;
                 break;
             case R.id.menu_drawer_most_popular:
-                index = MOST_POPULAR_INDEX;
+                index = FragmentsConstants.MOST_POPULAR_INDEX;
                 break;
             case R.id.menu_drawer_top_stories:
-                index = TOP_STORIES_INDEX;
+                index = FragmentsConstants.TOP_STORIES_INDEX;
                 break;
             case R.id.menu_drawer_travel:
-                index = TRAVEL_INDEX;
+                index = FragmentsConstants.TRAVEL_INDEX;
                 break;
             default:
                 index = 0;
@@ -128,9 +121,9 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager() {
         PageAdapter adapter = new PageAdapter(getSupportFragmentManager());
-        for (int i = 0; i < PAGE_TITLE.length; i++) {
-            String title = PAGE_TITLE[i];
-            Fragment fragment = FRAGMENTS[i];
+        for (int i = 0; i < FragmentsConstants.PAGE_TITLES.length; i++) {
+            String title = FragmentsConstants.PAGE_TITLES[i];
+            Fragment fragment = FragmentsConstants.FRAGMENTS[i];
             tabLayout.addTab(tabLayout.newTab().setText(title));
             adapter.addFragment(fragment, title);
         }

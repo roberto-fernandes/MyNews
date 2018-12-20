@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/settings_margin"
     android:orientation="vertical"
-    tools:context=".ui.Activities.SearchSelectorActivity">
+    tools:context=".ui.activities.SearchSelectorActivity">
 
     <EditText
         android:id="@+id/activity_search_query_input_edit_text"

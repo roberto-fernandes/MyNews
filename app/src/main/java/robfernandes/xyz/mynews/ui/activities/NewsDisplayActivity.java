@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.ui.Activities;
+package robfernandes.xyz.mynews.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;

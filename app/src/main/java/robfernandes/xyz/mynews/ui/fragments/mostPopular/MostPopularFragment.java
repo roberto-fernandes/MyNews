@@ -1,4 +1,4 @@
-package robfernandes.xyz.mynews.ui.Fragments.MostPopular;
+package robfernandes.xyz.mynews.ui.fragments.mostPopular;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,7 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.Utils.Constants;
+import robfernandes.xyz.mynews.utils.Constants.*;
 import robfernandes.xyz.mynews.adapters.MostPopularAdapter;
 import robfernandes.xyz.mynews.network.NewsService;
 import robfernandes.xyz.mynews.network.model.APIResponseMostPopular;
@@ -42,7 +42,7 @@ public class MostPopularFragment extends Fragment {
 
     private void setItems(final boolean isRefreshing) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.API_BASE_URL)
+                .baseUrl(APIConstants.API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

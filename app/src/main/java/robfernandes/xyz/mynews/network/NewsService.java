@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import robfernandes.xyz.mynews.Utils.APIKeys;
+import robfernandes.xyz.mynews.utils.APIKeys;
 import robfernandes.xyz.mynews.network.model.APIResponseMostPopular;
 import robfernandes.xyz.mynews.network.model.APIResponseSearch;
 import robfernandes.xyz.mynews.network.model.APIResponseTopStories;

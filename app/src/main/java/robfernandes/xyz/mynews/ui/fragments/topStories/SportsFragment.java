@@ -1,9 +1,9 @@
-package robfernandes.xyz.mynews.ui.Fragments.TopStories;
+package robfernandes.xyz.mynews.ui.fragments.topStories;
 
 
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.SPORTS_SECTION;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 public class SportsFragment extends BaseFragment {
 
@@ -24,6 +24,6 @@ public class SportsFragment extends BaseFragment {
 
     @Override
     protected String getSection() {
-        return SPORTS_SECTION;
+        return APIConstants.SPORTS_SECTION;
     }
 }

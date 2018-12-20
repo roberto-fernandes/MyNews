@@ -11,8 +11,7 @@ import java.util.List;
 
 import robfernandes.xyz.mynews.network.model.APIResponseSearch;
 
-import static robfernandes.xyz.mynews.Utils.Constants.FilterKeys;
-import static robfernandes.xyz.mynews.Utils.Constants.NOTIFICATIONS_CATEGORIES;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 /**
  * Created by Roberto Fernandes on 18/12/2018.
@@ -47,16 +46,16 @@ public class DataManager {
 
 
         for (APIResponseSearch.Doc news : newsList) {
-            testNewsCategory(sportsCheckbox, NOTIFICATIONS_CATEGORIES[0], news);
-            testNewsCategory(artsCheckbox, NOTIFICATIONS_CATEGORIES[1], news);
-            testNewsCategory(travelCheckbox, NOTIFICATIONS_CATEGORIES[2], news);
-            testNewsCategory(politicsCheckbox, NOTIFICATIONS_CATEGORIES[3], news);
-            testNewsCategory(businessCheckbox, NOTIFICATIONS_CATEGORIES[4], news);
+            testNewsCategory(sportsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[0], news);
+            testNewsCategory(artsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[1], news);
+            testNewsCategory(travelCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[2], news);
+            testNewsCategory(politicsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[3], news);
+            testNewsCategory(businessCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[4], news);
 
             if (otherCheckbox) {
                 boolean anotherCategory = true;
                 String newsSection = news.getSectionName();
-                for (String category : NOTIFICATIONS_CATEGORIES) {
+                for (String category : NotificationsConstants.NOTIFICATIONS_CATEGORIES) {
                     if (newsSection.equals(category)) {
                         anotherCategory = false;
                     }

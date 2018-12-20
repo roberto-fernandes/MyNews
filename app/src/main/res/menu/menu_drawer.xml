@@ -33,9 +33,5 @@
         android:icon="@drawable/baseline_beach_access_24"
         android:title="@string/travel">
     </item>
-
-    <item
-        android:icon="@android:drawable/ic_menu_close_clear_cancel"
-        android:title="@string/close_app" />
     </group>
 </menu>

@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import robfernandes.xyz.mynews.ui.Activities.NewsDisplayActivity;
+import robfernandes.xyz.mynews.ui.activities.NewsDisplayActivity;
 import robfernandes.xyz.mynews.network.model.APIResponseTopStories;
 import robfernandes.xyz.mynews.R;
 

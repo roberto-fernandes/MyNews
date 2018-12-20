@@ -17,7 +17,7 @@ import java.util.List;
 import robfernandes.xyz.mynews.R;
 import robfernandes.xyz.mynews.network.model.APIResponseMostPopular;
 import robfernandes.xyz.mynews.network.model.APIResponseMostPopular.Result;
-import robfernandes.xyz.mynews.ui.Activities.NewsDisplayActivity;
+import robfernandes.xyz.mynews.ui.activities.NewsDisplayActivity;
 
 
 

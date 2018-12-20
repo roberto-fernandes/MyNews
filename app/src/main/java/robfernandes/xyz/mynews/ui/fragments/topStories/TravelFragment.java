@@ -1,11 +1,11 @@
-package robfernandes.xyz.mynews.ui.Fragments.TopStories;
+package robfernandes.xyz.mynews.ui.fragments.topStories;
 
 
 import android.support.v4.app.Fragment;
 
 import robfernandes.xyz.mynews.R;
 
-import static robfernandes.xyz.mynews.Utils.Constants.TRAVEL_SECTION;
+import static robfernandes.xyz.mynews.utils.Constants.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +29,6 @@ public class TravelFragment extends BaseFragment {
 
     @Override
     protected String getSection() {
-        return TRAVEL_SECTION;
+        return APIConstants.TRAVEL_SECTION;
     }
 }
