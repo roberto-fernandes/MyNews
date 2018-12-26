@@ -97,9 +97,6 @@ public class APIResponseMostPopular {
         @SerializedName("views")
         @Expose
         private Integer views;
-        @SerializedName("des_facet")
-        @Expose
-        private List<String> desFacet = null;
         @SerializedName("media")
         @Expose
         private List<Medium> media = null;
@@ -206,14 +203,6 @@ public class APIResponseMostPopular {
 
         public void setViews(Integer views) {
             this.views = views;
-        }
-
-        public List<String> getDesFacet() {
-            return desFacet;
-        }
-
-        public void setDesFacet(List<String> desFacet) {
-            this.desFacet = desFacet;
         }
 
         public List<Medium> getMedia() {

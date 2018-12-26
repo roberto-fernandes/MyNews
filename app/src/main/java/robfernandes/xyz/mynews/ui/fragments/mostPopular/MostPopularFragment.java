@@ -18,10 +18,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.utils.Constants.*;
 import robfernandes.xyz.mynews.adapters.MostPopularAdapter;
 import robfernandes.xyz.mynews.network.NewsService;
 import robfernandes.xyz.mynews.network.model.APIResponseMostPopular;
+import robfernandes.xyz.mynews.utils.Constants.APIConstants;
 
 public class MostPopularFragment extends Fragment {
 
