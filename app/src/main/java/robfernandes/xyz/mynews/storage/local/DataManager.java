@@ -46,11 +46,11 @@ public class DataManager {
 
 
         for (APIResponseSearch.Doc news : newsList) {
-            testNewsCategory(sportsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[0], news);
-            testNewsCategory(artsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[1], news);
-            testNewsCategory(travelCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[2], news);
-            testNewsCategory(politicsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[3], news);
-            testNewsCategory(businessCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[4], news);
+            filterNewsCategory(sportsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[0], news);
+            filterNewsCategory(artsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[1], news);
+            filterNewsCategory(travelCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[2], news);
+            filterNewsCategory(politicsCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[3], news);
+            filterNewsCategory(businessCheckbox, NotificationsConstants.NOTIFICATIONS_CATEGORIES[4], news);
 
             if (otherCheckbox) {
                 boolean anotherCategory = true;
@@ -68,8 +68,8 @@ public class DataManager {
         return newsListFiltered;
     }
 
-    private void testNewsCategory(boolean isChecked, String sectionName,
-                                  APIResponseSearch.Doc news) {
+    private void filterNewsCategory(boolean isChecked, String sectionName,
+                                    APIResponseSearch.Doc news) {
         if (isChecked) {
             if (news.getSectionName().equals(sectionName)) {
                 newsListFiltered.add(news);
