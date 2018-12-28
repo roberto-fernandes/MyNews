@@ -9,7 +9,6 @@
     <string name="travel">Travel</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
-    <string name="close_app">Close App</string>
     <string name="most_popular">Most popular</string>
     <string name="top_stories">Top stories</string>
     <string name="politics">Politics</string>
@@ -21,6 +20,6 @@
     <string name="news_image">News Image</string>
     <string name="other_topics">Other Topics</string>
     <string name="search">Search</string>
-    <string name="help_activity">help activity</string>
-    <string name="about_activity">about activity</string>
+    <string name="help_activity">For help contact: roberto.fernandes21@gmail.com</string>
+    <string name="about_activity">The source code of this project can be found at: https://github.com/rob9233/MyNews</string>
 </resources>

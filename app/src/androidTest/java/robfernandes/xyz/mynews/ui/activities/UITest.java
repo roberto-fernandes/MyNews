@@ -34,12 +34,17 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 
+@SuppressWarnings("RedundantTypeArguments")
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class UITest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityTestRule;
+
+    public UITest() {
+        mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    }
 
     @Test
     public void uITest() {
