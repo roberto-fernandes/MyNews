@@ -6,7 +6,6 @@ jobs:
       - image: circleci/android:api-25-alpha
     environment:
       JVM_OPTS: -Xmx3200m
-      robfernandes.xyz.mynews.utils.APIKeys.API_KEY: API_KEY
     steps:
       - checkout
       - restore_cache:
