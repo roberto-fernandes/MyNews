@@ -16,6 +16,7 @@ jobs:
  #     - run:
  #          name: Download Dependencies
  #          command: ./gradlew androidDependencies
+       echo $SECURE_FILE > APIKeys
       - save_cache:
           paths:
             - ~/.gradle
