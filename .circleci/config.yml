@@ -6,17 +6,17 @@ jobs:
       - image: circleci/android:api-25-alpha
     environment:
       JVM_OPTS: -Xmx3200m
+      API_KEY: API_KEY
     steps:
       - checkout
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
          name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-         command:
+         command: sudo chmod +x ./gradlew
  #     - run:
  #          name: Download Dependencies
  #          command: ./gradlew androidDependencies
-       echo $SECURE_FILE > APIKeys
       - save_cache:
           paths:
             - ~/.gradle
