@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Create gradle.properties global
-          command: echo $API_KEY_GRADLE_PROPERTIES | base64 --decode > ~/.gradle/gradle.properties
+          command: echo $API_KEY_GRADLE_PROPERTIES | base64 --decode > gradle.properties
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
