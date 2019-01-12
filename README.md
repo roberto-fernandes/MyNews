@@ -18,12 +18,12 @@ There is a functionality to read a news by clicking on it:<br/><br/>
 
 ## Navigation Drawer 
 If the clicks on the icon to open the Navigation Drawer the following menu is displayed: <br/><br/>
-<img src="https://i.ibb.co/4N47Y0D/drawer.png" alt="1" border="0">
+<img src="https://i.ibb.co/4N47Y0D/drawer.png" alt="1" border="0"><br/><br/>
 On this menu the users have the different sections they can click and navigate to.
 
 ## Search page
 When the user clicks on the search icon the this page will be displayed:<br/><br/>
-<img src="https://i.ibb.co/t8jqvbn/search-page.png" alt="1" border="0">
+<img src="https://i.ibb.co/t8jqvbn/search-page.png" alt="1" border="0"><br/><br/>
 The users can enter the search term, select a date interval and category.
 When the user presses the date to be changed the following dialog is shown:<br/><br/>
 <img src="https://i.ibb.co/YhcH1QP/date-picker.png" alt="1" border="0">
