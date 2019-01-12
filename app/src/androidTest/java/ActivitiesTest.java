@@ -1,6 +1,3 @@
-package robfernandes.xyz.mynews.ui.activities;
-
-
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
@@ -17,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import robfernandes.xyz.mynews.R;
+import robfernandes.xyz.mynews.ui.activities.MainActivity;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
