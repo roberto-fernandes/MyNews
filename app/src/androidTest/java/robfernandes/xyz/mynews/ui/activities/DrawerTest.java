@@ -1,3 +1,6 @@
+package robfernandes.xyz.mynews.ui.activities;
+
+
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
@@ -14,80 +17,46 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import robfernandes.xyz.mynews.R;
-import robfernandes.xyz.mynews.ui.activities.MainActivity;
 
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class ActivitiesTest {
+public class DrawerTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
-    public void activitiesTest() {
-        ViewInteraction actionMenuItemView = onView(
-                allOf(withId(R.id.menu_toolbar_search), withContentDescription("Search"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.toolbar),
-                                        2),
-                                0),
-                        isDisplayed()));
-        actionMenuItemView.perform(click());
-
-        ViewInteraction linearLayoutCompat = onView(
-                allOf(childAtPosition(
-                        allOf(withId(android.R.id.content),
-                                childAtPosition(
-                                        withId(R.id.decor_content_parent),
-                                        1)),
-                        0),
-                        isDisplayed()));
-        linearLayoutCompat.check(matches(isDisplayed()));
-
+    public void drawerTest() {
         ViewInteraction appCompatImageButton = onView(
-                allOf(withContentDescription("Navigate up"),
+                allOf(withContentDescription("Open"),
                         childAtPosition(
-                                allOf(withId(R.id.action_bar),
+                                allOf(withId(R.id.toolbar),
                                         childAtPosition(
-                                                withId(R.id.action_bar_container),
+                                                withClassName(is("android.widget.LinearLayout")),
                                                 0)),
                                 1),
                         isDisplayed()));
         appCompatImageButton.perform(click());
 
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-
-        ViewInteraction appCompatTextView = onView(
-                allOf(withId(R.id.title), withText("Notifications"),
+        ViewInteraction drawerLayout = onView(
+                allOf(withId(R.id.drawerLayout),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.content),
+                                        withId(android.R.id.content),
                                         0),
-                                0),
+                                1),
                         isDisplayed()));
-        appCompatTextView.perform(click());
-
-        ViewInteraction linearLayout = onView(
-                allOf(childAtPosition(
-                        allOf(withId(android.R.id.content),
-                                childAtPosition(
-                                        withId(R.id.decor_content_parent),
-                                        1)),
-                        0),
-                        isDisplayed()));
-        linearLayout.check(matches(isDisplayed()));
+        drawerLayout.check(matches(isDisplayed()));
     }
 
     private static Matcher<View> childAtPosition(
