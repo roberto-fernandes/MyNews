@@ -84,7 +84,7 @@ public abstract class BaseFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<APIResponseTopStories> call, @NonNull Throwable t) {
-                Log.e(TAG, "asd onFailure: on Top APIResponseTopStories API Call.. " + t);
+                Log.e(TAG, "asd onFailure: on Top APIResponseTopStories API Call.. " + t + "  ... " + call);
             }
         });
     }
