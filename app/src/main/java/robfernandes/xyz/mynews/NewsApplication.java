@@ -22,7 +22,6 @@ public class NewsApplication extends Application {
                     NotificationManager.IMPORTANCE_DEFAULT
             );
             channel.setDescription("Notifications from MyNews");
-
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
